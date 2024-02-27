@@ -9,6 +9,9 @@ import Foundation
 import Alamofire
 
 //TODO: ErrorHandling
+enum CoinError: Error {
+    
+}
 
 final class APIService {
     static let shared = APIService()

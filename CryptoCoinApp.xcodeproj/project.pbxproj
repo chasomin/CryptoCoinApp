@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		7958A7D62B8DB08D007372AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7958A7D52B8DB08D007372AF /* AppDelegate.swift */; };
 		7958A7D82B8DB08D007372AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7958A7D72B8DB08D007372AF /* SceneDelegate.swift */; };
-		7958A7DA2B8DB08D007372AF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7958A7D92B8DB08D007372AF /* ViewController.swift */; };
 		7958A7DD2B8DB08D007372AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7958A7DB2B8DB08D007372AF /* Main.storyboard */; };
 		7958A7DF2B8DB08E007372AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7958A7DE2B8DB08E007372AF /* Assets.xcassets */; };
 		7958A7E22B8DB08E007372AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7958A7E02B8DB08E007372AF /* LaunchScreen.storyboard */; };
@@ -29,13 +28,19 @@
 		7958A8142B8DC265007372AF /* NFT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7958A8132B8DC265007372AF /* NFT.swift */; };
 		7958A8162B8DC361007372AF /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7958A8152B8DC361007372AF /* Search.swift */; };
 		7958A8182B8DC3DC007372AF /* Market.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7958A8172B8DC3DC007372AF /* Market.swift */; };
+		7958A81A2B8DDAEF007372AF /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7958A8192B8DDAEF007372AF /* SearchViewController.swift */; };
+		7958A81C2B8DE0BF007372AF /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7958A81B2B8DE0BF007372AF /* SearchTableViewCell.swift */; };
+		7958A81E2B8DE0DE007372AF /* Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7958A81D2B8DE0DE007372AF /* Identifier.swift */; };
+		7958A8202B8DE359007372AF /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7958A81F2B8DE359007372AF /* BaseTableViewCell.swift */; };
+		7958A8242B8DF155007372AF /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7958A8232B8DF155007372AF /* UIFont+Extension.swift */; };
+		7958A8262B8DF52C007372AF /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7958A8252B8DF52C007372AF /* SearchViewModel.swift */; };
+		7958A8282B8DF593007372AF /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7958A8272B8DF593007372AF /* Observable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7958A7D22B8DB08D007372AF /* CryptoCoinApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoCoinApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7958A7D52B8DB08D007372AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7958A7D72B8DB08D007372AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7958A7D92B8DB08D007372AF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7958A7DC2B8DB08D007372AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7958A7DE2B8DB08E007372AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7958A7E12B8DB08E007372AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +54,13 @@
 		7958A8132B8DC265007372AF /* NFT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFT.swift; sourceTree = "<group>"; };
 		7958A8152B8DC361007372AF /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		7958A8172B8DC3DC007372AF /* Market.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Market.swift; sourceTree = "<group>"; };
+		7958A8192B8DDAEF007372AF /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		7958A81B2B8DE0BF007372AF /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		7958A81D2B8DE0DE007372AF /* Identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifier.swift; sourceTree = "<group>"; };
+		7958A81F2B8DE359007372AF /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		7958A8232B8DF155007372AF /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
+		7958A8252B8DF52C007372AF /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		7958A8272B8DF593007372AF /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,7 +111,6 @@
 				7958A8062B8DB9ED007372AF /* Chart */,
 				7958A7D52B8DB08D007372AF /* AppDelegate.swift */,
 				7958A7D72B8DB08D007372AF /* SceneDelegate.swift */,
-				7958A7D92B8DB08D007372AF /* ViewController.swift */,
 				7958A7DB2B8DB08D007372AF /* Main.storyboard */,
 				7958A7DE2B8DB08E007372AF /* Assets.xcassets */,
 				7958A7E02B8DB08E007372AF /* LaunchScreen.storyboard */,
@@ -112,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				7958A7FF2B8DB21D007372AF /* BaseViewController.swift */,
+				7958A81F2B8DE359007372AF /* BaseTableViewCell.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -120,6 +132,8 @@
 			isa = PBXGroup;
 			children = (
 				7958A8012B8DB328007372AF /* UIColor+Extension.swift */,
+				7958A81D2B8DE0DE007372AF /* Identifier.swift */,
+				7958A8232B8DF155007372AF /* UIFont+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -134,6 +148,9 @@
 		7958A8042B8DB9C3007372AF /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				7958A8192B8DDAEF007372AF /* SearchViewController.swift */,
+				7958A8252B8DF52C007372AF /* SearchViewModel.swift */,
+				7958A81B2B8DE0BF007372AF /* SearchTableViewCell.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -172,6 +189,7 @@
 		7958A8092B8DBA4B007372AF /* Observable */ = {
 			isa = PBXGroup;
 			children = (
+				7958A8272B8DF593007372AF /* Observable.swift */,
 			);
 			path = Observable;
 			sourceTree = "<group>";
@@ -278,15 +296,21 @@
 			files = (
 				7958A8162B8DC361007372AF /* Search.swift in Sources */,
 				7958A8122B8DC25F007372AF /* Coin.swift in Sources */,
-				7958A7DA2B8DB08D007372AF /* ViewController.swift in Sources */,
 				7958A8142B8DC265007372AF /* NFT.swift in Sources */,
 				7958A8002B8DB21D007372AF /* BaseViewController.swift in Sources */,
+				7958A8282B8DF593007372AF /* Observable.swift in Sources */,
 				7958A7D62B8DB08D007372AF /* AppDelegate.swift in Sources */,
 				7958A7D82B8DB08D007372AF /* SceneDelegate.swift in Sources */,
+				7958A81A2B8DDAEF007372AF /* SearchViewController.swift in Sources */,
 				7958A8102B8DBF4F007372AF /* Trending.swift in Sources */,
+				7958A81C2B8DE0BF007372AF /* SearchTableViewCell.swift in Sources */,
 				7958A80B2B8DBAFE007372AF /* APIService.swift in Sources */,
+				7958A81E2B8DE0DE007372AF /* Identifier.swift in Sources */,
 				7958A80D2B8DBC65007372AF /* CoinAPI.swift in Sources */,
 				7958A8022B8DB328007372AF /* UIColor+Extension.swift in Sources */,
+				7958A8202B8DE359007372AF /* BaseTableViewCell.swift in Sources */,
+				7958A8262B8DF52C007372AF /* SearchViewModel.swift in Sources */,
+				7958A8242B8DF155007372AF /* UIFont+Extension.swift in Sources */,
 				7958A8182B8DC3DC007372AF /* Market.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
