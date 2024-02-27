@@ -9,7 +9,7 @@ import Foundation
 
 enum Constants {
     enum NavigationTitle: String {
-        case cryptoCoin = "Crypto Coin"
+        case trending = "Crypto Coin"
         case search = "Search"
         case favorite = "Favorite Coin"
     }
