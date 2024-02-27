@@ -35,6 +35,8 @@
 		7958A8242B8DF155007372AF /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7958A8232B8DF155007372AF /* UIFont+Extension.swift */; };
 		7958A8262B8DF52C007372AF /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7958A8252B8DF52C007372AF /* SearchViewModel.swift */; };
 		7958A8282B8DF593007372AF /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7958A8272B8DF593007372AF /* Observable.swift */; };
+		7958A82A2B8E011A007372AF /* Toast+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7958A8292B8E011A007372AF /* Toast+Extension.swift */; };
+		7958A82D2B8E3054007372AF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7958A82C2B8E3054007372AF /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +63,8 @@
 		7958A8232B8DF155007372AF /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		7958A8252B8DF52C007372AF /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		7958A8272B8DF593007372AF /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		7958A8292B8E011A007372AF /* Toast+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Toast+Extension.swift"; sourceTree = "<group>"; };
+		7958A82C2B8E3054007372AF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +104,7 @@
 		7958A7D42B8DB08D007372AF /* CryptoCoinApp */ = {
 			isa = PBXGroup;
 			children = (
+				7958A82B2B8E3046007372AF /* Enum */,
 				7958A7FE2B8DB206007372AF /* Extension */,
 				7958A7FD2B8DB1CE007372AF /* Base */,
 				7958A8072B8DBA2C007372AF /* Network */,
@@ -131,9 +136,10 @@
 		7958A7FE2B8DB206007372AF /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				7958A8012B8DB328007372AF /* UIColor+Extension.swift */,
 				7958A81D2B8DE0DE007372AF /* Identifier.swift */,
+				7958A8012B8DB328007372AF /* UIColor+Extension.swift */,
 				7958A8232B8DF155007372AF /* UIFont+Extension.swift */,
+				7958A8292B8E011A007372AF /* Toast+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -204,6 +210,14 @@
 				7958A8132B8DC265007372AF /* NFT.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		7958A82B2B8E3046007372AF /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				7958A82C2B8E3054007372AF /* Constants.swift */,
+			);
+			path = Enum;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,12 +314,14 @@
 				7958A8002B8DB21D007372AF /* BaseViewController.swift in Sources */,
 				7958A8282B8DF593007372AF /* Observable.swift in Sources */,
 				7958A7D62B8DB08D007372AF /* AppDelegate.swift in Sources */,
+				7958A82D2B8E3054007372AF /* Constants.swift in Sources */,
 				7958A7D82B8DB08D007372AF /* SceneDelegate.swift in Sources */,
 				7958A81A2B8DDAEF007372AF /* SearchViewController.swift in Sources */,
 				7958A8102B8DBF4F007372AF /* Trending.swift in Sources */,
 				7958A81C2B8DE0BF007372AF /* SearchTableViewCell.swift in Sources */,
 				7958A80B2B8DBAFE007372AF /* APIService.swift in Sources */,
 				7958A81E2B8DE0DE007372AF /* Identifier.swift in Sources */,
+				7958A82A2B8E011A007372AF /* Toast+Extension.swift in Sources */,
 				7958A80D2B8DBC65007372AF /* CoinAPI.swift in Sources */,
 				7958A8022B8DB328007372AF /* UIColor+Extension.swift in Sources */,
 				7958A8202B8DE359007372AF /* BaseTableViewCell.swift in Sources */,

@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 import Kingfisher
 
+//TODO: 네트워트 할 때 로딩 뷰
 final class SearchViewController: BaseViewController {
     let viewModel = SearchViewModel()
     let searchBar = UISearchBar()
@@ -16,13 +17,17 @@ final class SearchViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Search"
+        navigationItem.title = Constants.NavigationTitle.search.rawValue
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(SearchTableViewCell.self, forCellReuseIdentifier: SearchTableViewCell.id)
         searchBar.delegate = self
         viewModel.outputCoinList.bind { data in
             self.tableView.reloadData()
+        }
+        viewModel.outputError.bind { value in
+            guard let value else { return }
+            self.showToast(text: value)
         }
     }
     
@@ -67,8 +72,6 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let text = searchBar.text else { return }
-        viewModel.inputSearchButtonClicked.value = text
-        // TODO: 방금 전 검색어와 같은 검색하면 call 막기
+        viewModel.inputSearchButtonClicked.value = searchBar.text
     }
 }
