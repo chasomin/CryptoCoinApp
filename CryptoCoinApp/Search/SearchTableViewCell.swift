@@ -45,7 +45,6 @@ final class SearchTableViewCell: BaseTableViewCell {
     }
     
     override func configureView() {
-        backgroundColor = .clear
         
         iconImageView.contentMode = .scaleAspectFill
         

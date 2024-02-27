@@ -51,6 +51,7 @@ final class SearchViewController: BaseViewController {
         searchBar.placeholder = "코인 검색"
         searchBar.searchBarStyle = .minimal
         
+        tableView.backgroundColor = .clear
         tableView.rowHeight = UITableView.automaticDimension
         tableView.separatorStyle = .none
     }
