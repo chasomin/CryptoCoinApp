@@ -17,17 +17,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let scene = (scene as? UIWindowScene) else { return }
-        
         window = UIWindow(windowScene: scene)
+        
         let tabBar = UITabBarController()
         
-//        let trendingVC =
+        let trendingVC = UINavigationController(rootViewController: TrendingViewController())
+        trendingVC.navigationBar.prefersLargeTitles = true
         let searchVC = UINavigationController(rootViewController: SearchViewController())
         searchVC.navigationBar.prefersLargeTitles = true
-//        let FavoriteVC =
-        searchVC.tabBarItem = UITabBarItem(title: "", image: .tabSearchInactive, selectedImage: .tabSearch)
+        let favoriteVC = UINavigationController(rootViewController: FavoriteViewController())
+        favoriteVC.navigationBar.prefersLargeTitles = true
         
-        tabBar.viewControllers = [searchVC]
+        trendingVC.tabBarItem = UITabBarItem(title: "", image: .tabTrendInactive, selectedImage: .tabTrend)
+        searchVC.tabBarItem = UITabBarItem(title: "", image: .tabSearchInactive, selectedImage: .tabSearch)
+        favoriteVC.tabBarItem = UITabBarItem(title: "", image: .tabPortfolioInactive, selectedImage: .tabPortfolio)
+        
+        tabBar.viewControllers = [trendingVC, searchVC, favoriteVC]
         window?.rootViewController = tabBar
         window?.makeKeyAndVisible()
         

@@ -37,6 +37,10 @@
 		7958A8282B8DF593007372AF /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7958A8272B8DF593007372AF /* Observable.swift */; };
 		7958A82A2B8E011A007372AF /* Toast+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7958A8292B8E011A007372AF /* Toast+Extension.swift */; };
 		7958A82D2B8E3054007372AF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7958A82C2B8E3054007372AF /* Constants.swift */; };
+		7958A82F2B8E32ED007372AF /* TrendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7958A82E2B8E32ED007372AF /* TrendingViewController.swift */; };
+		7958A8312B8E3300007372AF /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7958A8302B8E3300007372AF /* FavoriteViewController.swift */; };
+		7958A8332B8E35BC007372AF /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7958A8322B8E35BC007372AF /* BaseCollectionViewCell.swift */; };
+		7958A8352B8E3623007372AF /* FavoriteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7958A8342B8E3623007372AF /* FavoriteCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +69,10 @@
 		7958A8272B8DF593007372AF /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		7958A8292B8E011A007372AF /* Toast+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Toast+Extension.swift"; sourceTree = "<group>"; };
 		7958A82C2B8E3054007372AF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		7958A82E2B8E32ED007372AF /* TrendingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingViewController.swift; sourceTree = "<group>"; };
+		7958A8302B8E3300007372AF /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
+		7958A8322B8E35BC007372AF /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		7958A8342B8E3623007372AF /* FavoriteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +137,7 @@
 			children = (
 				7958A7FF2B8DB21D007372AF /* BaseViewController.swift */,
 				7958A81F2B8DE359007372AF /* BaseTableViewCell.swift */,
+				7958A8322B8E35BC007372AF /* BaseCollectionViewCell.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -147,6 +156,7 @@
 		7958A8032B8DB9A6007372AF /* Trending */ = {
 			isa = PBXGroup;
 			children = (
+				7958A82E2B8E32ED007372AF /* TrendingViewController.swift */,
 			);
 			path = Trending;
 			sourceTree = "<group>";
@@ -164,6 +174,8 @@
 		7958A8052B8DB9DB007372AF /* Favorite */ = {
 			isa = PBXGroup;
 			children = (
+				7958A8302B8E3300007372AF /* FavoriteViewController.swift */,
+				7958A8342B8E3623007372AF /* FavoriteCollectionViewCell.swift */,
 			);
 			path = Favorite;
 			sourceTree = "<group>";
@@ -308,11 +320,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7958A8312B8E3300007372AF /* FavoriteViewController.swift in Sources */,
 				7958A8162B8DC361007372AF /* Search.swift in Sources */,
 				7958A8122B8DC25F007372AF /* Coin.swift in Sources */,
 				7958A8142B8DC265007372AF /* NFT.swift in Sources */,
+				7958A8352B8E3623007372AF /* FavoriteCollectionViewCell.swift in Sources */,
 				7958A8002B8DB21D007372AF /* BaseViewController.swift in Sources */,
 				7958A8282B8DF593007372AF /* Observable.swift in Sources */,
+				7958A8332B8E35BC007372AF /* BaseCollectionViewCell.swift in Sources */,
 				7958A7D62B8DB08D007372AF /* AppDelegate.swift in Sources */,
 				7958A82D2B8E3054007372AF /* Constants.swift in Sources */,
 				7958A7D82B8DB08D007372AF /* SceneDelegate.swift in Sources */,
@@ -322,6 +337,7 @@
 				7958A80B2B8DBAFE007372AF /* APIService.swift in Sources */,
 				7958A81E2B8DE0DE007372AF /* Identifier.swift in Sources */,
 				7958A82A2B8E011A007372AF /* Toast+Extension.swift in Sources */,
+				7958A82F2B8E32ED007372AF /* TrendingViewController.swift in Sources */,
 				7958A80D2B8DBC65007372AF /* CoinAPI.swift in Sources */,
 				7958A8022B8DB328007372AF /* UIColor+Extension.swift in Sources */,
 				7958A8202B8DE359007372AF /* BaseTableViewCell.swift in Sources */,
