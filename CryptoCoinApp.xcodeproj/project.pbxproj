@@ -22,6 +22,13 @@
 		7958A7FC2B8DB1B5007372AF /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 7958A7FB2B8DB1B5007372AF /* Kingfisher */; };
 		7958A8002B8DB21D007372AF /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7958A7FF2B8DB21D007372AF /* BaseViewController.swift */; };
 		7958A8022B8DB328007372AF /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7958A8012B8DB328007372AF /* UIColor+Extension.swift */; };
+		7958A80B2B8DBAFE007372AF /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7958A80A2B8DBAFE007372AF /* APIService.swift */; };
+		7958A80D2B8DBC65007372AF /* CoinAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7958A80C2B8DBC65007372AF /* CoinAPI.swift */; };
+		7958A8102B8DBF4F007372AF /* Trending.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7958A80F2B8DBF4F007372AF /* Trending.swift */; };
+		7958A8122B8DC25F007372AF /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7958A8112B8DC25F007372AF /* Coin.swift */; };
+		7958A8142B8DC265007372AF /* NFT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7958A8132B8DC265007372AF /* NFT.swift */; };
+		7958A8162B8DC361007372AF /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7958A8152B8DC361007372AF /* Search.swift */; };
+		7958A8182B8DC3DC007372AF /* Market.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7958A8172B8DC3DC007372AF /* Market.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +42,13 @@
 		7958A7E32B8DB08E007372AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7958A7FF2B8DB21D007372AF /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		7958A8012B8DB328007372AF /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		7958A80A2B8DBAFE007372AF /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		7958A80C2B8DBC65007372AF /* CoinAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinAPI.swift; sourceTree = "<group>"; };
+		7958A80F2B8DBF4F007372AF /* Trending.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trending.swift; sourceTree = "<group>"; };
+		7958A8112B8DC25F007372AF /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
+		7958A8132B8DC265007372AF /* NFT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFT.swift; sourceTree = "<group>"; };
+		7958A8152B8DC361007372AF /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
+		7958A8172B8DC3DC007372AF /* Market.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Market.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +90,13 @@
 			children = (
 				7958A7FE2B8DB206007372AF /* Extension */,
 				7958A7FD2B8DB1CE007372AF /* Base */,
+				7958A8072B8DBA2C007372AF /* Network */,
+				7958A8082B8DBA3D007372AF /* DB */,
+				7958A8092B8DBA4B007372AF /* Observable */,
+				7958A8032B8DB9A6007372AF /* Trending */,
+				7958A8042B8DB9C3007372AF /* Search */,
+				7958A8052B8DB9DB007372AF /* Favorite */,
+				7958A8062B8DB9ED007372AF /* Chart */,
 				7958A7D52B8DB08D007372AF /* AppDelegate.swift */,
 				7958A7D72B8DB08D007372AF /* SceneDelegate.swift */,
 				7958A7D92B8DB08D007372AF /* ViewController.swift */,
@@ -101,6 +122,70 @@
 				7958A8012B8DB328007372AF /* UIColor+Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		7958A8032B8DB9A6007372AF /* Trending */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Trending;
+			sourceTree = "<group>";
+		};
+		7958A8042B8DB9C3007372AF /* Search */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		7958A8052B8DB9DB007372AF /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Favorite;
+			sourceTree = "<group>";
+		};
+		7958A8062B8DB9ED007372AF /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Chart;
+			sourceTree = "<group>";
+		};
+		7958A8072B8DBA2C007372AF /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				7958A80E2B8DBF43007372AF /* Model */,
+				7958A80C2B8DBC65007372AF /* CoinAPI.swift */,
+				7958A80A2B8DBAFE007372AF /* APIService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		7958A8082B8DBA3D007372AF /* DB */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DB;
+			sourceTree = "<group>";
+		};
+		7958A8092B8DBA4B007372AF /* Observable */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Observable;
+			sourceTree = "<group>";
+		};
+		7958A80E2B8DBF43007372AF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7958A80F2B8DBF4F007372AF /* Trending.swift */,
+				7958A8152B8DC361007372AF /* Search.swift */,
+				7958A8172B8DC3DC007372AF /* Market.swift */,
+				7958A8112B8DC25F007372AF /* Coin.swift */,
+				7958A8132B8DC265007372AF /* NFT.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,11 +276,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7958A8162B8DC361007372AF /* Search.swift in Sources */,
+				7958A8122B8DC25F007372AF /* Coin.swift in Sources */,
 				7958A7DA2B8DB08D007372AF /* ViewController.swift in Sources */,
+				7958A8142B8DC265007372AF /* NFT.swift in Sources */,
 				7958A8002B8DB21D007372AF /* BaseViewController.swift in Sources */,
 				7958A7D62B8DB08D007372AF /* AppDelegate.swift in Sources */,
 				7958A7D82B8DB08D007372AF /* SceneDelegate.swift in Sources */,
+				7958A8102B8DBF4F007372AF /* Trending.swift in Sources */,
+				7958A80B2B8DBAFE007372AF /* APIService.swift in Sources */,
+				7958A80D2B8DBC65007372AF /* CoinAPI.swift in Sources */,
 				7958A8022B8DB328007372AF /* UIColor+Extension.swift in Sources */,
+				7958A8182B8DC3DC007372AF /* Market.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
