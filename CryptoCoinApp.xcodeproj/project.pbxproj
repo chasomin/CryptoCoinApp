@@ -15,6 +15,8 @@
 		7925C5E42B8F0C57006A4691 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7925C5E32B8F0C57006A4691 /* Coin.swift */; };
 		7925C5E62B8F0C7D006A4691 /* NFT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7925C5E52B8F0C7D006A4691 /* NFT.swift */; };
 		7925C5E82B8F1629006A4691 /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7925C5E72B8F1629006A4691 /* ChartViewModel.swift */; };
+		7925C5EE2B8F6FF9006A4691 /* Number+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7925C5ED2B8F6FF9006A4691 /* Number+Extension.swift */; };
+		7925C5F02B8F81A1006A4691 /* DateFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7925C5EF2B8F81A1006A4691 /* DateFormatter+Extension.swift */; };
 		7958A7D62B8DB08D007372AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7958A7D52B8DB08D007372AF /* AppDelegate.swift */; };
 		7958A7D82B8DB08D007372AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7958A7D72B8DB08D007372AF /* SceneDelegate.swift */; };
 		7958A7DD2B8DB08D007372AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7958A7DB2B8DB08D007372AF /* Main.storyboard */; };
@@ -60,6 +62,8 @@
 		7925C5E32B8F0C57006A4691 /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 		7925C5E52B8F0C7D006A4691 /* NFT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFT.swift; sourceTree = "<group>"; };
 		7925C5E72B8F1629006A4691 /* ChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
+		7925C5ED2B8F6FF9006A4691 /* Number+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Number+Extension.swift"; sourceTree = "<group>"; };
+		7925C5EF2B8F81A1006A4691 /* DateFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extension.swift"; sourceTree = "<group>"; };
 		7958A7D22B8DB08D007372AF /* CryptoCoinApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoCoinApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7958A7D52B8DB08D007372AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7958A7D72B8DB08D007372AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -129,6 +133,36 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
+		7925C5E92B8F6EA9006A4691 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7925C5DC2B8F09A3006A4691 /* Entity */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7925C5EA2B8F6EC0006A4691 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7958A7FD2B8DB1CE007372AF /* Base */,
+				7925C5D92B8F0595006A4691 /* Custom */,
+				7958A8032B8DB9A6007372AF /* Trending */,
+				7958A8042B8DB9C3007372AF /* Search */,
+				7958A8052B8DB9DB007372AF /* Favorite */,
+				7958A8062B8DB9ED007372AF /* Chart */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7925C5EB2B8F6F21006A4691 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7958A8252B8DF52C007372AF /* SearchViewModel.swift */,
+				7925C5E72B8F1629006A4691 /* ChartViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		7958A7C92B8DB08D007372AF = {
 			isa = PBXGroup;
 			children = (
@@ -148,18 +182,14 @@
 		7958A7D42B8DB08D007372AF /* CryptoCoinApp */ = {
 			isa = PBXGroup;
 			children = (
-				7925C5D92B8F0595006A4691 /* Custom */,
-				7958A82B2B8E3046007372AF /* Enum */,
+				7958A8092B8DBA4B007372AF /* Observable */,
 				7958A7FE2B8DB206007372AF /* Extension */,
-				7958A7FD2B8DB1CE007372AF /* Base */,
-				7925C5DC2B8F09A3006A4691 /* Entity */,
+				7958A82B2B8E3046007372AF /* Enum */,
+				7925C5E92B8F6EA9006A4691 /* Model */,
+				7925C5EA2B8F6EC0006A4691 /* View */,
+				7925C5EB2B8F6F21006A4691 /* ViewModel */,
 				7958A8072B8DBA2C007372AF /* Network */,
 				7958A8082B8DBA3D007372AF /* DB */,
-				7958A8092B8DBA4B007372AF /* Observable */,
-				7958A8032B8DB9A6007372AF /* Trending */,
-				7958A8042B8DB9C3007372AF /* Search */,
-				7958A8052B8DB9DB007372AF /* Favorite */,
-				7958A8062B8DB9ED007372AF /* Chart */,
 				7958A7D52B8DB08D007372AF /* AppDelegate.swift */,
 				7958A7D72B8DB08D007372AF /* SceneDelegate.swift */,
 				7958A7DB2B8DB08D007372AF /* Main.storyboard */,
@@ -187,6 +217,8 @@
 				7958A8012B8DB328007372AF /* UIColor+Extension.swift */,
 				7958A8232B8DF155007372AF /* UIFont+Extension.swift */,
 				7958A8292B8E011A007372AF /* Toast+Extension.swift */,
+				7925C5ED2B8F6FF9006A4691 /* Number+Extension.swift */,
+				7925C5EF2B8F81A1006A4691 /* DateFormatter+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -203,7 +235,6 @@
 			isa = PBXGroup;
 			children = (
 				7958A8192B8DDAEF007372AF /* SearchViewController.swift */,
-				7958A8252B8DF52C007372AF /* SearchViewModel.swift */,
 				7958A81B2B8DE0BF007372AF /* SearchTableViewCell.swift */,
 			);
 			path = Search;
@@ -222,7 +253,6 @@
 			isa = PBXGroup;
 			children = (
 				7925C5B92B8EAE67006A4691 /* ChartViewController.swift */,
-				7925C5E72B8F1629006A4691 /* ChartViewModel.swift */,
 			);
 			path = Chart;
 			sourceTree = "<group>";
@@ -369,6 +399,7 @@
 				7958A8002B8DB21D007372AF /* BaseViewController.swift in Sources */,
 				7958A8282B8DF593007372AF /* Observable.swift in Sources */,
 				7925C5E22B8F0A67006A4691 /* Market.swift in Sources */,
+				7925C5F02B8F81A1006A4691 /* DateFormatter+Extension.swift in Sources */,
 				7958A8332B8E35BC007372AF /* BaseCollectionViewCell.swift in Sources */,
 				7958A7D62B8DB08D007372AF /* AppDelegate.swift in Sources */,
 				7958A82D2B8E3054007372AF /* Constants.swift in Sources */,
@@ -388,6 +419,7 @@
 				7958A80D2B8DBC65007372AF /* CoinAPI.swift in Sources */,
 				7925C5BA2B8EAE67006A4691 /* ChartViewController.swift in Sources */,
 				7958A8022B8DB328007372AF /* UIColor+Extension.swift in Sources */,
+				7925C5EE2B8F6FF9006A4691 /* Number+Extension.swift in Sources */,
 				7958A8202B8DE359007372AF /* BaseTableViewCell.swift in Sources */,
 				7958A8262B8DF52C007372AF /* SearchViewModel.swift in Sources */,
 				7958A8242B8DF155007372AF /* UIFont+Extension.swift in Sources */,

@@ -20,9 +20,9 @@ struct ItemDTO: Decodable {
     let id: String
     let name: String
     let symbol: String
-    let thumb: String   // search에서 쓰이는 이미지
+    let thumb: String
     let small: String?   // trending에서 쓰이는 이미지
-    let large: String?
+    let large: String?   // search에서 쓰이는 이미지
     let data: CoinDataDTO?
     let market_cap_rank: Int? // 순위. 정렬가능
     
