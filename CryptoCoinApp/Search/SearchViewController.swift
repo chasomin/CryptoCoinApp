@@ -69,6 +69,13 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         cell.configureCell(data: data)
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = ChartViewController()
+        vc.viewModel.id = viewModel.outputCoinList.value[indexPath.row].id
+        print(viewModel.outputCoinList.value[indexPath.row].id)
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 extension SearchViewController: UISearchBarDelegate {

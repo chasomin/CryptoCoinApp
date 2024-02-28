@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class FavoriteCollectionViewCell: BaseCollectionViewCell {
+final class FavoriteCollectionViewCell: BaseCollectionViewCell {
     let iconImageView = UIImageView()
     let nameLabel = UILabel()
     let symbolLabel = UILabel()

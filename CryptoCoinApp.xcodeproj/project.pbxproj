@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7925C5BA2B8EAE67006A4691 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7925C5B92B8EAE67006A4691 /* ChartViewController.swift */; };
+		7925C5DB2B8F05B1006A4691 /* IconNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7925C5DA2B8F05B1006A4691 /* IconNameView.swift */; };
+		7925C5DE2B8F0A4C006A4691 /* Trending.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7925C5DD2B8F0A4C006A4691 /* Trending.swift */; };
+		7925C5E02B8F0A5E006A4691 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7925C5DF2B8F0A5E006A4691 /* Search.swift */; };
+		7925C5E22B8F0A67006A4691 /* Market.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7925C5E12B8F0A67006A4691 /* Market.swift */; };
+		7925C5E42B8F0C57006A4691 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7925C5E32B8F0C57006A4691 /* Coin.swift */; };
+		7925C5E62B8F0C7D006A4691 /* NFT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7925C5E52B8F0C7D006A4691 /* NFT.swift */; };
+		7925C5E82B8F1629006A4691 /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7925C5E72B8F1629006A4691 /* ChartViewModel.swift */; };
 		7958A7D62B8DB08D007372AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7958A7D52B8DB08D007372AF /* AppDelegate.swift */; };
 		7958A7D82B8DB08D007372AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7958A7D72B8DB08D007372AF /* SceneDelegate.swift */; };
 		7958A7DD2B8DB08D007372AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7958A7DB2B8DB08D007372AF /* Main.storyboard */; };
@@ -23,11 +31,11 @@
 		7958A8022B8DB328007372AF /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7958A8012B8DB328007372AF /* UIColor+Extension.swift */; };
 		7958A80B2B8DBAFE007372AF /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7958A80A2B8DBAFE007372AF /* APIService.swift */; };
 		7958A80D2B8DBC65007372AF /* CoinAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7958A80C2B8DBC65007372AF /* CoinAPI.swift */; };
-		7958A8102B8DBF4F007372AF /* Trending.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7958A80F2B8DBF4F007372AF /* Trending.swift */; };
-		7958A8122B8DC25F007372AF /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7958A8112B8DC25F007372AF /* Coin.swift */; };
-		7958A8142B8DC265007372AF /* NFT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7958A8132B8DC265007372AF /* NFT.swift */; };
-		7958A8162B8DC361007372AF /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7958A8152B8DC361007372AF /* Search.swift */; };
-		7958A8182B8DC3DC007372AF /* Market.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7958A8172B8DC3DC007372AF /* Market.swift */; };
+		7958A8102B8DBF4F007372AF /* TrendingDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7958A80F2B8DBF4F007372AF /* TrendingDTO.swift */; };
+		7958A8122B8DC25F007372AF /* CoinDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7958A8112B8DC25F007372AF /* CoinDTO.swift */; };
+		7958A8142B8DC265007372AF /* NFTDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7958A8132B8DC265007372AF /* NFTDTO.swift */; };
+		7958A8162B8DC361007372AF /* SearchDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7958A8152B8DC361007372AF /* SearchDTO.swift */; };
+		7958A8182B8DC3DC007372AF /* MarketDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7958A8172B8DC3DC007372AF /* MarketDTO.swift */; };
 		7958A81A2B8DDAEF007372AF /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7958A8192B8DDAEF007372AF /* SearchViewController.swift */; };
 		7958A81C2B8DE0BF007372AF /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7958A81B2B8DE0BF007372AF /* SearchTableViewCell.swift */; };
 		7958A81E2B8DE0DE007372AF /* Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7958A81D2B8DE0DE007372AF /* Identifier.swift */; };
@@ -44,6 +52,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7925C5B92B8EAE67006A4691 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
+		7925C5DA2B8F05B1006A4691 /* IconNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconNameView.swift; sourceTree = "<group>"; };
+		7925C5DD2B8F0A4C006A4691 /* Trending.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trending.swift; sourceTree = "<group>"; };
+		7925C5DF2B8F0A5E006A4691 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
+		7925C5E12B8F0A67006A4691 /* Market.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Market.swift; sourceTree = "<group>"; };
+		7925C5E32B8F0C57006A4691 /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
+		7925C5E52B8F0C7D006A4691 /* NFT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFT.swift; sourceTree = "<group>"; };
+		7925C5E72B8F1629006A4691 /* ChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
 		7958A7D22B8DB08D007372AF /* CryptoCoinApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoCoinApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7958A7D52B8DB08D007372AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7958A7D72B8DB08D007372AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,11 +71,11 @@
 		7958A8012B8DB328007372AF /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		7958A80A2B8DBAFE007372AF /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		7958A80C2B8DBC65007372AF /* CoinAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinAPI.swift; sourceTree = "<group>"; };
-		7958A80F2B8DBF4F007372AF /* Trending.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trending.swift; sourceTree = "<group>"; };
-		7958A8112B8DC25F007372AF /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
-		7958A8132B8DC265007372AF /* NFT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFT.swift; sourceTree = "<group>"; };
-		7958A8152B8DC361007372AF /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
-		7958A8172B8DC3DC007372AF /* Market.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Market.swift; sourceTree = "<group>"; };
+		7958A80F2B8DBF4F007372AF /* TrendingDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingDTO.swift; sourceTree = "<group>"; };
+		7958A8112B8DC25F007372AF /* CoinDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDTO.swift; sourceTree = "<group>"; };
+		7958A8132B8DC265007372AF /* NFTDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTDTO.swift; sourceTree = "<group>"; };
+		7958A8152B8DC361007372AF /* SearchDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDTO.swift; sourceTree = "<group>"; };
+		7958A8172B8DC3DC007372AF /* MarketDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketDTO.swift; sourceTree = "<group>"; };
 		7958A8192B8DDAEF007372AF /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		7958A81B2B8DE0BF007372AF /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		7958A81D2B8DE0DE007372AF /* Identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifier.swift; sourceTree = "<group>"; };
@@ -93,6 +109,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7925C5D92B8F0595006A4691 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				7925C5DA2B8F05B1006A4691 /* IconNameView.swift */,
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
+		7925C5DC2B8F09A3006A4691 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				7925C5DD2B8F0A4C006A4691 /* Trending.swift */,
+				7925C5DF2B8F0A5E006A4691 /* Search.swift */,
+				7925C5E12B8F0A67006A4691 /* Market.swift */,
+				7925C5E32B8F0C57006A4691 /* Coin.swift */,
+				7925C5E52B8F0C7D006A4691 /* NFT.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
 		7958A7C92B8DB08D007372AF = {
 			isa = PBXGroup;
 			children = (
@@ -112,9 +148,11 @@
 		7958A7D42B8DB08D007372AF /* CryptoCoinApp */ = {
 			isa = PBXGroup;
 			children = (
+				7925C5D92B8F0595006A4691 /* Custom */,
 				7958A82B2B8E3046007372AF /* Enum */,
 				7958A7FE2B8DB206007372AF /* Extension */,
 				7958A7FD2B8DB1CE007372AF /* Base */,
+				7925C5DC2B8F09A3006A4691 /* Entity */,
 				7958A8072B8DBA2C007372AF /* Network */,
 				7958A8082B8DBA3D007372AF /* DB */,
 				7958A8092B8DBA4B007372AF /* Observable */,
@@ -183,6 +221,8 @@
 		7958A8062B8DB9ED007372AF /* Chart */ = {
 			isa = PBXGroup;
 			children = (
+				7925C5B92B8EAE67006A4691 /* ChartViewController.swift */,
+				7925C5E72B8F1629006A4691 /* ChartViewModel.swift */,
 			);
 			path = Chart;
 			sourceTree = "<group>";
@@ -190,7 +230,7 @@
 		7958A8072B8DBA2C007372AF /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				7958A80E2B8DBF43007372AF /* Model */,
+				7958A80E2B8DBF43007372AF /* DTO */,
 				7958A80C2B8DBC65007372AF /* CoinAPI.swift */,
 				7958A80A2B8DBAFE007372AF /* APIService.swift */,
 			);
@@ -212,16 +252,16 @@
 			path = Observable;
 			sourceTree = "<group>";
 		};
-		7958A80E2B8DBF43007372AF /* Model */ = {
+		7958A80E2B8DBF43007372AF /* DTO */ = {
 			isa = PBXGroup;
 			children = (
-				7958A80F2B8DBF4F007372AF /* Trending.swift */,
-				7958A8152B8DC361007372AF /* Search.swift */,
-				7958A8172B8DC3DC007372AF /* Market.swift */,
-				7958A8112B8DC25F007372AF /* Coin.swift */,
-				7958A8132B8DC265007372AF /* NFT.swift */,
+				7958A80F2B8DBF4F007372AF /* TrendingDTO.swift */,
+				7958A8152B8DC361007372AF /* SearchDTO.swift */,
+				7958A8172B8DC3DC007372AF /* MarketDTO.swift */,
+				7958A8112B8DC25F007372AF /* CoinDTO.swift */,
+				7958A8132B8DC265007372AF /* NFTDTO.swift */,
 			);
-			path = Model;
+			path = DTO;
 			sourceTree = "<group>";
 		};
 		7958A82B2B8E3046007372AF /* Enum */ = {
@@ -321,29 +361,37 @@
 			buildActionMask = 2147483647;
 			files = (
 				7958A8312B8E3300007372AF /* FavoriteViewController.swift in Sources */,
-				7958A8162B8DC361007372AF /* Search.swift in Sources */,
-				7958A8122B8DC25F007372AF /* Coin.swift in Sources */,
-				7958A8142B8DC265007372AF /* NFT.swift in Sources */,
+				7958A8162B8DC361007372AF /* SearchDTO.swift in Sources */,
+				7958A8122B8DC25F007372AF /* CoinDTO.swift in Sources */,
+				7958A8142B8DC265007372AF /* NFTDTO.swift in Sources */,
+				7925C5DB2B8F05B1006A4691 /* IconNameView.swift in Sources */,
 				7958A8352B8E3623007372AF /* FavoriteCollectionViewCell.swift in Sources */,
 				7958A8002B8DB21D007372AF /* BaseViewController.swift in Sources */,
 				7958A8282B8DF593007372AF /* Observable.swift in Sources */,
+				7925C5E22B8F0A67006A4691 /* Market.swift in Sources */,
 				7958A8332B8E35BC007372AF /* BaseCollectionViewCell.swift in Sources */,
 				7958A7D62B8DB08D007372AF /* AppDelegate.swift in Sources */,
 				7958A82D2B8E3054007372AF /* Constants.swift in Sources */,
 				7958A7D82B8DB08D007372AF /* SceneDelegate.swift in Sources */,
+				7925C5E82B8F1629006A4691 /* ChartViewModel.swift in Sources */,
+				7925C5DE2B8F0A4C006A4691 /* Trending.swift in Sources */,
+				7925C5E02B8F0A5E006A4691 /* Search.swift in Sources */,
 				7958A81A2B8DDAEF007372AF /* SearchViewController.swift in Sources */,
-				7958A8102B8DBF4F007372AF /* Trending.swift in Sources */,
+				7958A8102B8DBF4F007372AF /* TrendingDTO.swift in Sources */,
 				7958A81C2B8DE0BF007372AF /* SearchTableViewCell.swift in Sources */,
+				7925C5E42B8F0C57006A4691 /* Coin.swift in Sources */,
 				7958A80B2B8DBAFE007372AF /* APIService.swift in Sources */,
 				7958A81E2B8DE0DE007372AF /* Identifier.swift in Sources */,
 				7958A82A2B8E011A007372AF /* Toast+Extension.swift in Sources */,
 				7958A82F2B8E32ED007372AF /* TrendingViewController.swift in Sources */,
+				7925C5E62B8F0C7D006A4691 /* NFT.swift in Sources */,
 				7958A80D2B8DBC65007372AF /* CoinAPI.swift in Sources */,
+				7925C5BA2B8EAE67006A4691 /* ChartViewController.swift in Sources */,
 				7958A8022B8DB328007372AF /* UIColor+Extension.swift in Sources */,
 				7958A8202B8DE359007372AF /* BaseTableViewCell.swift in Sources */,
 				7958A8262B8DF52C007372AF /* SearchViewModel.swift in Sources */,
 				7958A8242B8DF155007372AF /* UIFont+Extension.swift in Sources */,
-				7958A8182B8DC3DC007372AF /* Market.swift in Sources */,
+				7958A8182B8DC3DC007372AF /* MarketDTO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

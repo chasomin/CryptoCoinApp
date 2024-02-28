@@ -63,4 +63,10 @@ extension FavoriteViewController: UICollectionViewDelegate, UICollectionViewData
         cell.percentageLabel.text = "+14.24%"
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //test
+        let vc = ChartViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }

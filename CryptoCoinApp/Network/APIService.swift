@@ -17,11 +17,12 @@ final class APIService {
     static let shared = APIService()
     private init() { }
     
+    //TODO: CompletionHandler 말고 return으로 하게 되면 Repository 에서 처리하기ㅣㅣㅣㅣ~~
     func fetchTrendingAPI(api: CoinAPI, completionHandler: @escaping (Trending?, Error?) -> Void) {
-        AF.request(api.endPoint, parameters: api.parameter).responseDecodable(of: Trending.self) { response in
+        AF.request(api.endPoint, parameters: api.parameter).responseDecodable(of: TrendingDTO.self) { response in
             switch response.result {
             case .success(let success):
-                completionHandler(success, nil)
+                completionHandler(success.toEntity(), nil)
             case .failure(let failure):
                 completionHandler(nil, failure)
             }
@@ -29,10 +30,10 @@ final class APIService {
     }
     
     func fetchCoinSearchAPI(api: CoinAPI, completionHandler: @escaping (Search?, Error?) -> Void) {
-        AF.request(api.endPoint, parameters: api.parameter).responseDecodable(of: Search.self) { response in
+        AF.request(api.endPoint, parameters: api.parameter).responseDecodable(of: SearchDTO.self) { response in
             switch response.result {
             case .success(let success):
-                completionHandler(success, nil)
+                completionHandler(success.toEntity(), nil)
             case .failure(let failure):
                 completionHandler(nil, failure)
             }
@@ -40,10 +41,10 @@ final class APIService {
     }
     
     func fetchCoinMarketAPI(api: CoinAPI, completionHandler: @escaping ([Market]?, Error?) -> Void) {
-        AF.request(api.endPoint, parameters: api.parameter).responseDecodable(of: [Market].self) { response in
+        AF.request(api.endPoint, parameters: api.parameter).responseDecodable(of: [MarketDTO].self) { response in
             switch response.result {
             case .success(let success):
-                completionHandler(success, nil)
+                completionHandler(success.map{$0.toEntity()}, nil)
             case .failure(let failure):
                 completionHandler(nil, failure)
             }
