@@ -65,7 +65,7 @@ final class SearchTableViewCell: BaseTableViewCell {
     func configureCell(data: Item) {
         nameLabel.text = data.name
         symbolLabel.text = data.symbol
-        iconImageView.kf.setImage(with: URL(string: data.thumb))
+        iconImageView.kf.setImage(with: URL(string: data.large))
         
     }
 }
