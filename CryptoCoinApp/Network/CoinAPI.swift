@@ -11,7 +11,7 @@ import Alamofire
 enum CoinAPI {
     case trending
     case search(text: String)
-    case market(id: String)
+    case market(id: [String])
     
     var baseURL: String {
         "https://api.coingecko.com/api/v3/"
@@ -35,8 +35,9 @@ enum CoinAPI {
         case .search(let text):
             ["query":text]
         case .market(let id):
+            
             ["vs_currency":"krw",
-             "ids":id,              //id 여러개 ,로 붙여서 검색도 가능
+             "ids":id.joined(separator: ","),              //id 여러개 ,로 붙여서 검색도 가능
              "sparkline":"true"]
         }
     }
