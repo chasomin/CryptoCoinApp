@@ -10,6 +10,7 @@ import Foundation
 extension Date {
     func dateToString() -> String {
         let format = DateFormatter()
+        format.timeZone = TimeZone(identifier: TimeZone.current.identifier)
         format.dateFormat = "M/d HH:mm:ss 업데이트"
         return format.string(from: self)
     }
@@ -18,8 +19,11 @@ extension Date {
 extension String {
     func stringDate() -> String {
         let format = DateFormatter()
+        format.timeZone = TimeZone(abbreviation: "UTC")
         format.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-        let data = format.date(from: self) ?? Date()
-        return data.dateToString()
+        let date = format.date(from: self) ?? Date()
+        
+        print(date)
+        return date.dateToString()
     }
 }
