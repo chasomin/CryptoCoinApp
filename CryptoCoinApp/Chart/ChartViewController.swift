@@ -211,8 +211,10 @@ extension ChartViewController {
             entryList.append(entry)
         }
         let set = LineChartDataSet(entries: entryList)
-        let gradientColors = [ChartColorTemplates.colorFromString("#FFFFFF").cgColor,
-                              ChartColorTemplates.colorFromString("#914CF5").cgColor]
+        let gradientColors = [
+            UIColor.backgroundColor.cgColor,
+            UIColor.pointColor.cgColor
+        ]
         let gradient = CGGradient(colorsSpace: nil, colors: gradientColors as CFArray, locations: nil)!
         set.fill = LinearGradientFill(gradient: gradient, angle: 90)
         set.fillAlpha = 1
