@@ -12,5 +12,6 @@ enum Constants {
         case trending = "Crypto Coin"
         case search = "Search"
         case favorite = "Favorite Coin"
+        case user = "User"
     }
 }

@@ -12,6 +12,7 @@
 		790E6FB52B9056EB002A9F37 /* FavoriteButtonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790E6FB42B9056EB002A9F37 /* FavoriteButtonManager.swift */; };
 		790E6FB72B906B72002A9F37 /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790E6FB62B906B72002A9F37 /* FavoriteViewModel.swift */; };
 		790E6FB92B909035002A9F37 /* HighLowColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790E6FB82B909035002A9F37 /* HighLowColorManager.swift */; };
+		790E6FBC2B90CDCE002A9F37 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790E6FBB2B90CDCE002A9F37 /* UserViewController.swift */; };
 		7925C5BA2B8EAE67006A4691 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7925C5B92B8EAE67006A4691 /* ChartViewController.swift */; };
 		7925C5DB2B8F05B1006A4691 /* IconNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7925C5DA2B8F05B1006A4691 /* IconNameView.swift */; };
 		7925C5DE2B8F0A4C006A4691 /* Trending.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7925C5DD2B8F0A4C006A4691 /* Trending.swift */; };
@@ -64,6 +65,7 @@
 		790E6FB42B9056EB002A9F37 /* FavoriteButtonManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButtonManager.swift; sourceTree = "<group>"; };
 		790E6FB62B906B72002A9F37 /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
 		790E6FB82B909035002A9F37 /* HighLowColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighLowColorManager.swift; sourceTree = "<group>"; };
+		790E6FBB2B90CDCE002A9F37 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		7925C5B92B8EAE67006A4691 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		7925C5DA2B8F05B1006A4691 /* IconNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconNameView.swift; sourceTree = "<group>"; };
 		7925C5DD2B8F0A4C006A4691 /* Trending.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trending.swift; sourceTree = "<group>"; };
@@ -123,6 +125,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		790E6FBA2B90CDAC002A9F37 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				790E6FBB2B90CDCE002A9F37 /* UserViewController.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
 		7925C5D92B8F0595006A4691 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
@@ -190,6 +200,7 @@
 				7958A8042B8DB9C3007372AF /* Search */,
 				7958A8052B8DB9DB007372AF /* Favorite */,
 				7958A8062B8DB9ED007372AF /* Chart */,
+				790E6FBA2B90CDAC002A9F37 /* User */,
 				7958A8072B8DBA2C007372AF /* Network */,
 				7958A8082B8DBA3D007372AF /* DB */,
 				7958A7D52B8DB08D007372AF /* AppDelegate.swift */,
@@ -398,6 +409,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7958A8312B8E3300007372AF /* FavoriteViewController.swift in Sources */,
+				790E6FBC2B90CDCE002A9F37 /* UserViewController.swift in Sources */,
 				7958A8162B8DC361007372AF /* SearchDTO.swift in Sources */,
 				7958A8122B8DC25F007372AF /* CoinDTO.swift in Sources */,
 				7958A8142B8DC265007372AF /* NFTDTO.swift in Sources */,
