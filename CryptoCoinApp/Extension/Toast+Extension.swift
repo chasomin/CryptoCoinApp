@@ -11,8 +11,11 @@ import Toast
 extension UIViewController {
     func showToast(text: String) {
         var style = ToastStyle()
-        style.backgroundColor = .black
+        style.backgroundColor = .pointColor
         style.messageColor = .white
+        style.verticalPadding = 15
+        style.horizontalPadding = 20
+        style.messageFont = .boldBody
         self.view.makeToast(text, duration: 2, position: .center, style: style)
     }
 }
