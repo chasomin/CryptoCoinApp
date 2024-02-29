@@ -9,6 +9,8 @@ import UIKit
 import SnapKit
 
 final class FavoriteViewController: BaseViewController {
+    let viewModel = FavoriteViewModel()
+    
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: setCollectionViewLayout())
     
     private static func setCollectionViewLayout() -> UICollectionViewLayout{
@@ -31,6 +33,18 @@ final class FavoriteViewController: BaseViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(FavoriteCollectionViewCell.self, forCellWithReuseIdentifier: FavoriteCollectionViewCell.id)
+        viewModel.outputError.bind { value in
+            guard let value else { return }
+            self.showToast(text: value)
+        }
+        viewModel.outputData.bind { _ in
+            self.collectionView.reloadData()
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.inputViewWillAppearTrigger.value = ()
     }
 
     override func configureHierarchy() {
@@ -52,21 +66,18 @@ final class FavoriteViewController: BaseViewController {
 
 extension FavoriteViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        11
+        viewModel.outputData.value.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FavoriteCollectionViewCell.id, for: indexPath) as! FavoriteCollectionViewCell
-        cell.iconImageView.image = UIImage(systemName: "heart")
-        cell.nameLabel.text = "qweq"
-        cell.symbolLabel.text = "123"
-        cell.priceLabel.text = "₩12,947,918"
-        cell.percentageLabel.text = "+14.24%"
+        cell.configureCell(data: viewModel.outputData.value[indexPath.row])
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //test
         let vc = ChartViewController()
+        vc.viewModel.id = viewModel.outputData.value[indexPath.row].id
         navigationController?.pushViewController(vc, animated: true)
     }
 }

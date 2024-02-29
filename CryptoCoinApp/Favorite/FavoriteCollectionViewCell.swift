@@ -7,18 +7,21 @@
 
 import UIKit
 import SnapKit
+import Kingfisher
 
 final class FavoriteCollectionViewCell: BaseCollectionViewCell {
     let iconImageView = UIImageView()
     let nameLabel = UILabel()
     let symbolLabel = UILabel()
     let priceLabel = UILabel()
+    let percentageView = UIView()
     let percentageLabel = UILabel()
     
     override func configureHierarchy() {
         contentView.addSubview(iconImageView)
         contentView.addSubview(nameLabel)
         contentView.addSubview(symbolLabel)
+        contentView.addSubview(percentageView)
         contentView.addSubview(percentageLabel)
         contentView.addSubview(priceLabel)
     }
@@ -40,9 +43,14 @@ final class FavoriteCollectionViewCell: BaseCollectionViewCell {
             make.trailing.equalTo(contentView.safeAreaLayoutGuide).inset(15)
         }
         percentageLabel.snp.makeConstraints { make in
-            make.trailing.bottom.equalTo(contentView.safeAreaLayoutGuide).inset(15)
-            make.width.equalTo(75)
+            make.trailing.bottom.equalTo(contentView.safeAreaLayoutGuide).inset(25)
             make.height.equalTo(25)
+        }
+        percentageView.snp.makeConstraints { make in
+            make.trailing.equalTo(percentageLabel.snp.trailing).offset(10)
+            make.bottom.equalTo(percentageLabel.snp.bottom)
+            make.leading.equalTo(percentageLabel.snp.leading).offset(-10)
+            make.top.equalTo(percentageLabel.snp.top)
         }
         priceLabel.snp.makeConstraints { make in
             make.bottom.equalTo(percentageLabel.snp.top)
@@ -77,11 +85,22 @@ final class FavoriteCollectionViewCell: BaseCollectionViewCell {
         priceLabel.textAlignment = .right
         priceLabel.font = .boldBody
 
-        percentageLabel.textColor = .upperLabelColor // -+다르게
         percentageLabel.textAlignment = .center
         percentageLabel.font = .boldCaption
-        percentageLabel.layer.cornerRadius = 5
-        percentageLabel.clipsToBounds = true
-        percentageLabel.backgroundColor = .upperBackColor   // -+다르게
+        
+        percentageView.layer.cornerRadius = 5
+        percentageView.clipsToBounds = true
+    }
+    
+    func configureCell(data: Market) {
+        // TODO: label 색 설정
+        percentageLabel.textColor = HighLowColorManager.shared.setLabelColor(num: data.priceChangePercentage)
+        percentageView.backgroundColor = HighLowColorManager.shared.setBackColor(num: data.priceChangePercentage)
+        iconImageView.kf.setImage(with: URL(string: data.image))
+        nameLabel.text = data.name
+        symbolLabel.text = data.symbol
+        priceLabel.text = data.priceString
+        percentageLabel.text = data.changePercentageString
+
     }
 }
