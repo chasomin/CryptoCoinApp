@@ -221,13 +221,16 @@ extension ChartViewController {
         set.drawCirclesEnabled = false
         set.mode = .cubicBezier
         set.setColor(.pointColor)
-        
+        set.drawVerticalHighlightIndicatorEnabled = false
+        set.drawHorizontalHighlightIndicatorEnabled = false
+
         chartView.data = LineChartData(dataSet: set)
         chartView.doubleTapToZoomEnabled = false
         chartView.xAxis.enabled = false
         chartView.leftAxis.enabled = false
         chartView.rightAxis.enabled = false
         chartView.legend.enabled = false
+
     }
 
     func setTextColor(_ value: Bool) {
