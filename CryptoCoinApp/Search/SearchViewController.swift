@@ -9,6 +9,10 @@ import UIKit
 import SnapKit
 import Kingfisher
 
+protocol PassDataProtocol {
+    func buttonTapped(tag: Int)
+}
+
 //TODO: 네트워트 할 때 로딩 뷰
 final class SearchViewController: BaseViewController {
     let viewModel = SearchViewModel()
@@ -29,6 +33,19 @@ final class SearchViewController: BaseViewController {
             guard let value else { return }
             self.showToast(text: value)
         }
+        viewModel.outputFavoriteButtonTapped.bind { value in
+            guard let value else { return }
+            self.tableView.reloadData()
+            self.showToast(text: value)
+        }
+        viewModel.inputViewWillAppearTrigger.bind { _ in
+            self.tableView.reloadData()
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.inputViewWillAppearTrigger.value = ()
     }
     
     override func configureHierarchy() {
@@ -66,7 +83,10 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: SearchTableViewCell.id, for: indexPath) as! SearchTableViewCell
         let data = viewModel.outputCoinList.value[indexPath.row]
-        cell.configureCell(data: data)
+        let searchText = searchBar.text?.lowercased()
+        cell.configureCell(data: data, searchText: searchText)
+        cell.delegate = self
+        cell.favoriteButton.tag = indexPath.row
         return cell
     }
     
@@ -79,6 +99,14 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        viewModel.inputSearchButtonClicked.value = searchBar.text
+        viewModel.inputSearchButtonTapped.value = searchBar.text
+    }
+}
+
+
+extension SearchViewController: PassDataProtocol {
+    func buttonTapped(tag: Int) {
+        viewModel.inputFavoriteButtonTapped.value = tag
+        
     }
 }

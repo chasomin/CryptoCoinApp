@@ -8,17 +8,29 @@
 import Foundation
 
 final class SearchViewModel {
-    var inputSearchButtonClicked: Observable<String?> = Observable(nil)
+    let repository = RealmFavoriteCoinRepository()
     
+    var inputSearchButtonTapped: Observable<String?> = Observable(nil)
+    var inputFavoriteButtonTapped: Observable<Int?> = Observable(nil)
+    var inputViewWillAppearTrigger: Observable<Void?> = Observable(nil)
     var outputCoinList: Observable<[Item]> = Observable([])
     var outputError: Observable<String?> = Observable(nil)
+    var outputFavoriteButtonTapped: Observable<String?> = Observable(nil)
     
     var oldValue = ""
     
     init() {
-        inputSearchButtonClicked.bind { value in
+        inputSearchButtonTapped.bind { value in
             guard let value else { return }
             self.vaildSearchText(value)
+        }
+        
+        inputFavoriteButtonTapped.bind { tag in
+            guard let tag else { return }
+            print(self.outputCoinList.value[tag].id)
+            let id = self.outputCoinList.value[tag].id
+            
+            self.outputFavoriteButtonTapped.value = self.saveOrDeleteItem(id)
         }
     }
     
@@ -48,4 +60,17 @@ final class SearchViewModel {
         print(value)
     }
     
+    func saveOrDeleteItem(_ id: String) -> String{
+        if repository.fetchItem().filter({$0.id == id}).isEmpty {
+            if repository.fetchItem().count < 10 {
+                repository.createItem(id)
+                return "즐겨찾기에 저장됐어요"
+            } else {
+                return "10개까지만 저장할 수 있어요"
+            }
+        } else {
+            repository.deleteItme(id)
+            return "즐겨찾기에서 삭제됐어요"
+        }
+    }
 }

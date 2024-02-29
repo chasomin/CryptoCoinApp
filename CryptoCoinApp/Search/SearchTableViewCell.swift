@@ -14,7 +14,8 @@ final class SearchTableViewCell: BaseTableViewCell {
     let symbolLabel = UILabel()
     let favoriteButton = UIButton()
     
-
+    var delegate: PassDataProtocol?
+    
     override func configureHierarchy() {
         contentView.addSubview(iconImageView)
         contentView.addSubview(nameLabel)
@@ -45,6 +46,7 @@ final class SearchTableViewCell: BaseTableViewCell {
     }
     
     override func configureView() {
+        selectionStyle = .none
         
         iconImageView.contentMode = .scaleAspectFill
         
@@ -52,20 +54,33 @@ final class SearchTableViewCell: BaseTableViewCell {
         nameLabel.numberOfLines = 1
         nameLabel.textAlignment = .left
         nameLabel.font = .boldBody
+
         
         symbolLabel.textColor = .secondaryLabel
         symbolLabel.numberOfLines = 1
         symbolLabel.textAlignment = .left
         symbolLabel.font = .caption
         
-        
-        favoriteButton.setImage(.btnStar, for: .normal)
+        favoriteButton.addTarget(self, action: #selector(favoriteButtonTapped), for: .touchUpInside)
     }
 
-    func configureCell(data: Item) {
+}
+
+extension SearchTableViewCell {
+    @objc func favoriteButtonTapped(_ sender: UIButton) {
+        delegate?.buttonTapped(tag: sender.tag)
+    }
+    
+    func configureCell(data: Item, searchText: String?) {
+        favoriteButton.setImage(SetButtonToggleColor.shared.setColor(id: data.id), for: .normal)
         nameLabel.text = data.name
         symbolLabel.text = data.symbol
         iconImageView.kf.setImage(with: URL(string: data.large))
         
+        guard let text = self.nameLabel.text else { return }
+        guard let searchText else { return }
+        let attributeString = NSMutableAttributedString(string: text)
+        attributeString.addAttribute(.foregroundColor, value: UIColor.pointColor, range: (text.lowercased() as NSString).range(of: searchText))
+        self.nameLabel.attributedText = attributeString
     }
 }
