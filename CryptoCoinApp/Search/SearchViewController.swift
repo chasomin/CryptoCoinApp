@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import Kingfisher
 
-protocol PassDataProtocol {
+protocol PassDataProtocol: AnyObject {
     func buttonTapped(tag: Int)
 }
 

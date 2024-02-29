@@ -14,7 +14,7 @@ final class SearchTableViewCell: BaseTableViewCell {
     let symbolLabel = UILabel()
     let favoriteButton = UIButton()
     
-    var delegate: PassDataProtocol?
+    weak var delegate: PassDataProtocol?
     
     override func configureHierarchy() {
         contentView.addSubview(iconImageView)
