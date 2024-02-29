@@ -57,7 +57,7 @@ final class ChartViewController: BaseViewController {
             self.allTimeHighLabel.text = data.allTimeHighString
             self.allTimeLowLabel.text = data.allTimeLowString
             self.updateLabel.text = data.update
-            print(data.lastUpdated)
+            self.favoriteButton.image = SetButtonToggleColor.shared.setColor(id: data.id)
         }
         viewModel.outputSparkline.bind { sparkline in
             self.setLineChart(chartView: self.chartView, data: sparkline)
@@ -70,7 +70,15 @@ final class ChartViewController: BaseViewController {
             guard let value else { return }
             self.setTextColor(value)
         }
+        viewModel.outputFavoriteButtonTapped.bind { value in
+            guard let value else { return }
+            self.showToast(text: value)
+            guard let data = self.viewModel.outputData.value else { return }
+            self.favoriteButton.image = SetButtonToggleColor.shared.setColor(id: data.id)
+        }
     }
+    
+    
     
     override func configureHierarchy() {
         [iconNameView, priceLabel, percentageLabel, todayLabel, highLowHStack, allTimeHStack, chartView, updateLabel].forEach {
@@ -165,7 +173,6 @@ final class ChartViewController: BaseViewController {
         allTimeHStack.spacing = 10
         allTimeHStack.distribution = .fillEqually
         
-        favoriteButton.image = .btnStar
         favoriteButton.target = self
         favoriteButton.action = #selector(favoriteButtonTapped)
         
@@ -193,10 +200,6 @@ final class ChartViewController: BaseViewController {
         updateLabel.font = .body
         updateLabel.textColor = .secondaryLabelColor
 
-    }
-    
-    @objc func favoriteButtonTapped() {
-        
     }
 }
 
@@ -233,6 +236,10 @@ extension ChartViewController {
         } else {
             percentageLabel.textColor = .lowerLabelColor
         }
-        
     }
+    
+    @objc func favoriteButtonTapped() {
+        viewModel.inputFavoriteButtonTapped.value = ()
+    }
+
 }
