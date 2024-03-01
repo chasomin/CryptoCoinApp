@@ -27,66 +27,79 @@ enum TrendingCell: Int, CaseIterable {
 
 
 final class TrendingViewController: BaseViewController {
-    let tableView = UITableView()
-
+    let favoriteViewModel = FavoriteViewModel()
+    
+    let scrollView = UIScrollView()
+    
+    let vStack = UIStackView()
+    let favoriteCell = FavoriteCell()
+    let rankCoinCell = RankCell()
+    let rankNFTCell = RankCell()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         navigationItem.title = Constants.NavigationTitle.trending.rawValue
         
+        favoriteViewModel.outputData.bind { value in
+            if value.count < 2 {
+                self.favoriteCell.isHidden = true
+            } else {
+                self.favoriteCell.isHidden = false
+                self.favoriteCell.favoriteCollectionView.reloadData()
+            }
+            print("VC 아웃풋 리로드")
+        }
+        favoriteViewModel.outputError.bind { value in
+            guard let value else { return }
+            self.showToast(text: value)
+        }
+        
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        favoriteViewModel.inputViewWillAppearTrigger.value = ()
     }
     
     override func configureHierarchy() {
-        view.addSubview(tableView)
+        view.addSubview(scrollView)
+        scrollView.addSubview(vStack)
+        vStack.addArrangedSubview(favoriteCell)
+        vStack.addArrangedSubview(rankCoinCell)
+        vStack.addArrangedSubview(rankNFTCell)
     }
     
     override func configureLayout() {
-        tableView.snp.makeConstraints { make in
-            make.edges.equalTo(view.safeAreaLayoutGuide)
+        scrollView.snp.makeConstraints { make in
+            make.top.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
+            make.bottom.equalTo(rankNFTCell.snp.bottom)
+        }
+        vStack.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.width.equalToSuperview()
+            make.height.equalToSuperview()
+        }
+        rankCoinCell.snp.makeConstraints { make in
+            make.height.equalTo(240)
+        }
+        rankNFTCell.snp.makeConstraints { make in
+            make.height.equalTo(240)
         }
     }
     
     override func configureView() {
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(FavoriteTableViewCell.self, forCellReuseIdentifier: FavoriteTableViewCell.id)
-        tableView.register(RankTableViewCell.self, forCellReuseIdentifier: RankTableViewCell.id)
-        tableView.separatorStyle = .none
-        tableView.rowHeight = 250
+        vStack.axis = .vertical
+        vStack.spacing = 10
+        vStack.distribution = .fillEqually
+        
+        favoriteCell.viewModel = self.favoriteViewModel
+
+        rankCoinCell.rankTitleLabel.text = TrendingCell.topCoin.title
+        rankCoinCell.viewModel.inputWhatKindOfCell.value = 1
+        rankNFTCell.rankTitleLabel.text = TrendingCell.topNFT.title
     }
 
-}
-
-extension TrendingViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        TrendingCell.allCases.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch TrendingCell(rawValue: indexPath.row) {
-        case .favorite :
-            let cell = tableView.dequeueReusableCell(withIdentifier: FavoriteTableViewCell.id, for: indexPath) as! FavoriteTableViewCell
-            return cell
-
-        case .topCoin:
-            let cell = tableView.dequeueReusableCell(withIdentifier: RankTableViewCell.id, for: indexPath) as! RankTableViewCell
-            cell.rankTitleLabel.text = TrendingCell.topCoin.title
-            cell.viewModel.inputWhatKindOfCell.value = indexPath.row
-            return cell
-
-        case .topNFT:
-            let cell = tableView.dequeueReusableCell(withIdentifier: RankTableViewCell.id, for: indexPath) as! RankTableViewCell
-            cell.rankTitleLabel.text = TrendingCell.topNFT.title
-            cell.viewModel.inputWhatKindOfCell.value = indexPath.row
-            return cell
-
-        case .none:
-            return UITableViewCell()
-        }
-    }
 }

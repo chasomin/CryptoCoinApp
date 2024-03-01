@@ -35,7 +35,6 @@ enum CoinAPI {
         case .search(let text):
             ["query":text]
         case .market(let id):
-            
             ["vs_currency":"krw",
              "ids":id.joined(separator: ","),              //id 여러개 ,로 붙여서 검색도 가능
              "sparkline":"true"]
