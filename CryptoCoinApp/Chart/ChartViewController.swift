@@ -64,7 +64,7 @@ final class ChartViewController: BaseViewController {
         }
         viewModel.outputError.bind { text in
             guard let text else { return }
-            self.showToast(text: text)
+            self.showErrorAlert(message: text)
         }
         viewModel.outputTextColor.bind { value in
             guard let value else { return }
@@ -77,8 +77,6 @@ final class ChartViewController: BaseViewController {
             self.favoriteButton.image = SetButtonToggleColor.shared.setColor(id: data.id)
         }
     }
-    
-    
     
     override func configureHierarchy() {
         [iconNameView, priceLabel, percentageLabel, todayLabel, highLowHStack, allTimeHStack, chartView, updateLabel].forEach {
