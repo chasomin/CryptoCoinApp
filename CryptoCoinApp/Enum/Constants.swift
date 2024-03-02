@@ -14,4 +14,21 @@ enum Constants {
         case favorite = "Favorite Coin"
         case user = "User"
     }
+    
+    enum TrendingCellTitle: Int, CaseIterable {
+        case favorite
+        case topCoin
+        case topNFT
+        
+        var title: String {
+            switch self {
+            case .favorite:
+                "My Favorite"
+            case .topCoin:
+                "Top 15 Coin"
+            case .topNFT:
+                "Top 7 NFT"
+            }
+        }
+    }
 }
