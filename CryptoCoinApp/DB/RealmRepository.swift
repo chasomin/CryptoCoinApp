@@ -20,7 +20,6 @@ final class RealmFavoriteCoinRepository {
         } catch {
             print(error)
         }
-        
     }
     
     func fetchItem() -> [FavoriteCoin] {
@@ -29,9 +28,7 @@ final class RealmFavoriteCoinRepository {
     
     
     func deleteItme(_ id: String) {
-        
         let item = fetchItem().filter{$0.id == id}
-        
         do {
             try realm.write {
                 realm.delete(item)

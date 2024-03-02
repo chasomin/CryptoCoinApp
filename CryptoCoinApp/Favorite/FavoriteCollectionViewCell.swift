@@ -93,7 +93,6 @@ final class FavoriteCollectionViewCell: BaseCollectionViewCell {
     }
     
     func configureCell(data: Market) {
-        // TODO: label 색 설정
         percentageLabel.textColor = HighLowColorManager.shared.setLabelColor(num: data.priceChangePercentage)
         percentageView.backgroundColor = HighLowColorManager.shared.setBackColor(num: data.priceChangePercentage)
         iconImageView.kf.setImage(with: URL(string: data.image))

@@ -9,10 +9,6 @@ import UIKit
 import SnapKit
 import Kingfisher
 
-protocol PassDataProtocol: AnyObject {
-    func buttonTapped(tag: Int)
-}
-
 //TODO: 네트워트 할 때 로딩 뷰
 final class SearchViewController: BaseViewController {
     let viewModel = SearchViewModel()
@@ -107,6 +103,5 @@ extension SearchViewController: UISearchBarDelegate {
 extension SearchViewController: PassDataProtocol {
     func buttonTapped(tag: Int) {
         viewModel.inputFavoriteButtonTapped.value = tag
-        
     }
 }

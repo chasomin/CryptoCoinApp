@@ -23,7 +23,6 @@ extension String {
         format.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
         let date = format.date(from: self) ?? Date()
         
-        print(date)
         return date.dateToString()
     }
 }
