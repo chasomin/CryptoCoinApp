@@ -63,7 +63,11 @@ final class SearchTableViewCell: BaseTableViewCell {
         
         favoriteButton.addTarget(self, action: #selector(favoriteButtonTapped), for: .touchUpInside)
     }
-
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        nameLabel.textColor = .titleColor
+    }
 }
 
 extension SearchTableViewCell {
@@ -79,8 +83,10 @@ extension SearchTableViewCell {
         
         guard let text = self.nameLabel.text else { return }
         guard let searchText else { return }
+        print("@", searchText)
         let attributeString = NSMutableAttributedString(string: text)
         attributeString.addAttribute(.foregroundColor, value: UIColor.pointColor, range: (text.lowercased() as NSString).range(of: searchText))
         self.nameLabel.attributedText = attributeString
+        print(attributeString)
     }
 }
