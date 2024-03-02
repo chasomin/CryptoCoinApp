@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import Kingfisher
 
-class RankCollectionViewCell: BaseCollectionViewCell {
+final class RankCollectionViewCell: BaseCollectionViewCell {
     
     let rankLabel = UILabel()
     let iconNameSymbolView = IconNameSymbolView()
@@ -31,6 +31,7 @@ class RankCollectionViewCell: BaseCollectionViewCell {
         iconNameSymbolView.snp.makeConstraints { make in
             make.leading.equalTo(rankLabel.snp.trailing).offset(10)
             make.centerY.equalTo(contentView)
+            make.width.equalTo(170)
         }
         priceLabel.snp.makeConstraints { make in
             make.trailing.equalTo(contentView).inset(10)
@@ -79,8 +80,8 @@ extension RankCollectionViewCell {
         iconNameSymbolView.nameLabel.text = item.name
         iconNameSymbolView.symbolLabel.text = item.symbol
         priceLabel.text = item.data.floorPrice
-        percentageLabel.text = item.data.floorPriceChangePercentage
-//        percentageLabel.textColor = HighLowColorManager.shared.setLabelColor(num: item.data.floorPriceChangePercentage)
+        percentageLabel.text = item.data.floorPriceChangePercentage.decimalCalculator()
+        percentageLabel.textColor = HighLowColorManager.shared.setLabelColor(num: item.data.floorPriceChangePercentage)
 
     }
 }
