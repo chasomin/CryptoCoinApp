@@ -8,29 +8,10 @@
 import UIKit
 import SnapKit
 
-enum TrendingCell: Int, CaseIterable {
-    case favorite
-    case topCoin
-    case topNFT
-    
-    var title: String {
-        switch self {
-        case .favorite:
-            "My Favorite"
-        case .topCoin:
-            "Top 15 Coin"
-        case .topNFT:
-            "Top 7 NFT"
-        }
-    }
-}
-
-
 final class TrendingViewController: BaseViewController {
     let favoriteViewModel = FavoriteViewModel()
     
     let scrollView = UIScrollView()
-    
     let vStack = UIStackView()
     let favoriteCell = FavoriteCell()
     let rankCoinCell = RankCell()
@@ -48,14 +29,13 @@ final class TrendingViewController: BaseViewController {
                 self.favoriteCell.isHidden = false
                 self.favoriteCell.favoriteCollectionView.reloadData()
             }
-            print("VC 아웃풋 리로드")
         }
         favoriteViewModel.outputError.bind { value in
             guard let value else { return }
             self.showToast(text: value)
         }
-        
-
+        favoriteCell.delegate = self
+        rankCoinCell.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -94,12 +74,18 @@ final class TrendingViewController: BaseViewController {
         vStack.axis = .vertical
         vStack.spacing = 10
         vStack.distribution = .fillEqually
-        
         favoriteCell.viewModel = self.favoriteViewModel
-
-        rankCoinCell.rankTitleLabel.text = TrendingCell.topCoin.title
+        rankCoinCell.rankTitleLabel.text = Constants.TrendingCellTitle.topCoin.title
         rankCoinCell.viewModel.inputWhatKindOfCell.value = 1
-        rankNFTCell.rankTitleLabel.text = TrendingCell.topNFT.title
+        rankNFTCell.rankTitleLabel.text = Constants.TrendingCellTitle.topNFT.title
     }
 
+}
+
+extension TrendingViewController: ViewTransitionProtocol {
+    func selecteCell(id: String) {
+        let vc = ChartViewController()
+        vc.viewModel.id = id
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
