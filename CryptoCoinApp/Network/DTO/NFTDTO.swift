@@ -27,6 +27,6 @@ struct NFTDataDTO: Decodable {
     
     func toEntity() -> NFTData{
         return NFTData(floorPrice: floor_price,
-                       floorPriceChangePercentage: floor_price_in_usd_24h_percentage_change)
+                       floorPriceChangePercentage: Double(floor_price_in_usd_24h_percentage_change) ?? 0)
     }
 }

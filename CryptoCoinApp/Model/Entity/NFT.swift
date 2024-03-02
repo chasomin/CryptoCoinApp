@@ -16,5 +16,5 @@ struct NFT {
 
 struct NFTData {
     let floorPrice: String
-    let floorPriceChangePercentage: String
+    let floorPriceChangePercentage: Double
 }
