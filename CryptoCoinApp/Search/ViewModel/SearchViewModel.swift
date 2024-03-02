@@ -27,7 +27,6 @@ final class SearchViewModel {
         
         inputFavoriteButtonTapped.bind { tag in
             guard let tag else { return }
-            print(self.outputCoinList.value[tag].id)
             let id = self.outputCoinList.value[tag].id
             
             self.outputFavoriteButtonTapped.value = self.saveOrDeleteItem(id)
@@ -48,16 +47,14 @@ final class SearchViewModel {
         }
 
         APIService.shared.fetchCoinSearchAPI(api: .search(text: value)) { data, error in
-            print("네트워크 요청")
             if error != nil {
-                self.outputError.value = "잠시후에 다시 시도해주세요"
+                self.outputError.value = error!.rawValue
             } else {
                 guard let data else { return }
                 self.outputCoinList.value = data.coins
             }
         }
         oldValue = value
-        print(value)
     }
     
     func saveOrDeleteItem(_ id: String) -> String{

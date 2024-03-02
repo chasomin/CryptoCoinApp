@@ -26,10 +26,9 @@ final class FavoriteViewModel {
             }
             APIService.shared.fetchCoinMarketAPI(api: .market(id: id)) { data, error in
                 if error != nil {
-                    self.outputError.value = "잠시후에 다시 시도해주세요"
+                    self.outputError.value = error!.rawValue
                 } else {
                     guard let data else { return }
-                    print("마켓 데이터 받음 -> OUPPUTData 변화")
                     self.outputData.value = data
                 }
             }
