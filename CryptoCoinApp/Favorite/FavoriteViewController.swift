@@ -12,7 +12,7 @@ final class FavoriteViewController: BaseViewController {
     let viewModel = FavoriteViewModel()
     
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: setCollectionViewLayout())
-    
+    let refreshControl = UIRefreshControl()
     private static func setCollectionViewLayout() -> UICollectionViewLayout{
         let layout = UICollectionViewFlowLayout()
         let space: CGFloat = 20
@@ -29,16 +29,18 @@ final class FavoriteViewController: BaseViewController {
         super.viewDidLoad()
 
         navigationItem.title = Constants.NavigationTitle.favorite.rawValue
-        
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.register(FavoriteCollectionViewCell.self, forCellWithReuseIdentifier: FavoriteCollectionViewCell.id)
+        setCollectionView()
         viewModel.outputError.bind { value in
             guard let value else { return }
             self.showToast(text: value)
         }
         viewModel.outputData.bind { _ in
             self.collectionView.reloadData()
+        }
+        viewModel.outputRefresh.bind { value in
+            guard let value else { return }
+            self.collectionView.reloadData()
+            self.refreshControl.endRefreshing()
         }
     }
     
@@ -61,6 +63,19 @@ final class FavoriteViewController: BaseViewController {
         collectionView.backgroundColor = .clear
 
     }
+}
+
+extension FavoriteViewController {
+    func setCollectionView() {
+        collectionView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(refreshCell), for: .valueChanged)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(FavoriteCollectionViewCell.self, forCellWithReuseIdentifier: FavoriteCollectionViewCell.id)
+    }
+    @objc func refreshCell() {
+        viewModel.inputRefreshControl.value = ()
+    }
 
 }
 
@@ -73,9 +88,7 @@ extension FavoriteViewController: UICollectionViewDelegate, UICollectionViewData
         cell.configureCell(data: viewModel.outputData.value[indexPath.row])
         return cell
     }
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //test
         let vc = ChartViewController()
         vc.viewModel.id = viewModel.outputData.value[indexPath.row].id
         navigationController?.pushViewController(vc, animated: true)
