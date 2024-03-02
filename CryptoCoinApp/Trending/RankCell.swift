@@ -8,9 +8,9 @@
 import UIKit
 import SnapKit
 
-final class RankCell: UIView {
+final class RankCell: BaseView {
     let viewModel = TrendingViewModel()
-
+    weak var delegate: ViewTransitionProtocol?
     let rankTitleLabel = UILabel()
     let rankCollectionView = UICollectionView(frame: .zero, collectionViewLayout: setRankCollectionViewLayout())
 
@@ -19,7 +19,7 @@ final class RankCell: UIView {
         layout.itemSize = CGSize(width: UIScreen.main.bounds.width / 1.2, height: 60)
         layout.minimumLineSpacing = 10
         layout.minimumInteritemSpacing = 0
-        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 0, right: 10)
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 0, right: UIScreen.main.bounds.width / 3)
         layout.scrollDirection = .horizontal
         return layout
     }
@@ -30,25 +30,20 @@ final class RankCell: UIView {
         viewModel.outputData.bind { _ in
             self.rankCollectionView.reloadData()
         }
-        
-        configureHierarchy()
-        configureLayout()
-        configureView()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configureHierarchy() {
+    override func configureHierarchy() {
         addSubview(rankTitleLabel)
         addSubview(rankCollectionView)
     }
     
-    func configureLayout() {
+    override func configureLayout() {
         rankTitleLabel.snp.makeConstraints { make in
             make.top.leading.equalTo(safeAreaLayoutGuide).inset(15)
-//            make.height.equalTo(30)
         }
         rankCollectionView.snp.makeConstraints { make in
             make.top.equalTo(rankTitleLabel.snp.bottom)
@@ -57,13 +52,14 @@ final class RankCell: UIView {
         }
     }
     
-    func configureView() {
+    override func configureView() {
         rankTitleLabel.font = .boldTitle
         
         rankCollectionView.delegate = self
         rankCollectionView.dataSource = self
         rankCollectionView.register(RankCollectionViewCell.self, forCellWithReuseIdentifier: RankCollectionViewCell.id)
         rankCollectionView.showsHorizontalScrollIndicator = false
+        rankCollectionView.decelerationRate = UIScrollView.DecelerationRate.fast
     }
 
 }
@@ -87,5 +83,34 @@ extension RankCell: UICollectionViewDelegate, UICollectionViewDataSource {
             cell.configureCell(item: data.nfts[indexPath.item], index: indexPath.item)
         }
         return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let value = viewModel.outputData.value else { return }
+        print(viewModel.outputError.value)
+        if viewModel.inputWhatKindOfCell.value == 1 {
+            self.delegate?.selecteCell(id: value.coins[indexPath.item].item.id)
+        }
+    }
+}
+
+extension RankCell: UIScrollViewDelegate {
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        if let cv = scrollView as? UICollectionView {
+            let layout = cv.collectionViewLayout as! UICollectionViewFlowLayout
+            let cellWidth = layout.itemSize.width + layout.minimumLineSpacing
+            
+            var offset = targetContentOffset.pointee
+            var index = round((offset.x + cv.contentInset.left) / cellWidth)
+            
+            if cv.contentOffset.x > targetContentOffset.pointee.x {
+                index = floor(index)
+            } else {
+                index = ceil(index)
+            }
+            
+            offset = CGPoint(x: index * cellWidth, y: -cv.contentInset.top)
+            targetContentOffset.pointee = offset
+            
+        }
     }
 }
