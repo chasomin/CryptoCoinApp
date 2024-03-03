@@ -77,8 +77,11 @@ extension RankCell: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RankCollectionViewCell.id, for: indexPath) as! RankCollectionViewCell
         guard let data = viewModel.outputData.value else { return UICollectionViewCell() }
+        let coinSortData = data.coins.sorted {
+            $0.item.marketRank ?? 0 < $1.item.marketRank ?? 0
+        }
         if viewModel.inputWhatKindOfCell.value == 1 {
-            cell.configureCell(item: data.coins[indexPath.item].item, index: indexPath.item)
+            cell.configureCell(item: coinSortData[indexPath.item].item, index: indexPath.item)
         } else {
             cell.configureCell(item: data.nfts[indexPath.item], index: indexPath.item)
         }
