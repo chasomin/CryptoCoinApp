@@ -24,6 +24,8 @@
 		790E6FCF2B937459002A9F37 /* ViewTransitionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790E6FCE2B937459002A9F37 /* ViewTransitionProtocol.swift */; };
 		790E6FD12B93963E002A9F37 /* Alert+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790E6FD02B93963E002A9F37 /* Alert+Extension.swift */; };
 		790E6FD32B939A29002A9F37 /* CryptoCoinError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790E6FD22B939A29002A9F37 /* CryptoCoinError.swift */; };
+		790E6FD52B945C4B002A9F37 /* CircleUserImageBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790E6FD42B945C4B002A9F37 /* CircleUserImageBarButton.swift */; };
+		790E6FD72B946C50002A9F37 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790E6FD62B946C50002A9F37 /* EmptyView.swift */; };
 		7925C5BA2B8EAE67006A4691 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7925C5B92B8EAE67006A4691 /* ChartViewController.swift */; };
 		7925C5DB2B8F05B1006A4691 /* IconNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7925C5DA2B8F05B1006A4691 /* IconNameView.swift */; };
 		7925C5DE2B8F0A4C006A4691 /* Trending.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7925C5DD2B8F0A4C006A4691 /* Trending.swift */; };
@@ -88,6 +90,8 @@
 		790E6FCE2B937459002A9F37 /* ViewTransitionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTransitionProtocol.swift; sourceTree = "<group>"; };
 		790E6FD02B93963E002A9F37 /* Alert+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alert+Extension.swift"; sourceTree = "<group>"; };
 		790E6FD22B939A29002A9F37 /* CryptoCoinError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCoinError.swift; sourceTree = "<group>"; };
+		790E6FD42B945C4B002A9F37 /* CircleUserImageBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleUserImageBarButton.swift; sourceTree = "<group>"; };
+		790E6FD62B946C50002A9F37 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		7925C5B92B8EAE67006A4691 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		7925C5DA2B8F05B1006A4691 /* IconNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconNameView.swift; sourceTree = "<group>"; };
 		7925C5DD2B8F0A4C006A4691 /* Trending.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trending.swift; sourceTree = "<group>"; };
@@ -171,6 +175,8 @@
 				790E6FB82B909035002A9F37 /* HighLowColorManager.swift */,
 				7925C5DA2B8F05B1006A4691 /* IconNameView.swift */,
 				790E6FC52B90F88E002A9F37 /* IconNameSymbolView.swift */,
+				790E6FD42B945C4B002A9F37 /* CircleUserImageBarButton.swift */,
+				790E6FD62B946C50002A9F37 /* EmptyView.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -471,6 +477,7 @@
 				7958A7D82B8DB08D007372AF /* SceneDelegate.swift in Sources */,
 				7925C5E82B8F1629006A4691 /* ChartViewModel.swift in Sources */,
 				790E6FC62B90F88E002A9F37 /* IconNameSymbolView.swift in Sources */,
+				790E6FD52B945C4B002A9F37 /* CircleUserImageBarButton.swift in Sources */,
 				790E6FCD2B937324002A9F37 /* PassDataProtocol.swift in Sources */,
 				7925C5DE2B8F0A4C006A4691 /* Trending.swift in Sources */,
 				7925C5E02B8F0A5E006A4691 /* Search.swift in Sources */,
@@ -481,6 +488,7 @@
 				7958A8102B8DBF4F007372AF /* TrendingDTO.swift in Sources */,
 				7958A81C2B8DE0BF007372AF /* SearchTableViewCell.swift in Sources */,
 				790E6FB52B9056EB002A9F37 /* FavoriteButtonManager.swift in Sources */,
+				790E6FD72B946C50002A9F37 /* EmptyView.swift in Sources */,
 				7925C5E42B8F0C57006A4691 /* Coin.swift in Sources */,
 				7958A80B2B8DBAFE007372AF /* APIService.swift in Sources */,
 				7958A81E2B8DE0DE007372AF /* Identifier.swift in Sources */,
@@ -654,6 +662,7 @@
 				DEVELOPMENT_TEAM = FQNUU3X32C;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CryptoCoinApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "차소민";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -687,6 +696,7 @@
 				DEVELOPMENT_TEAM = FQNUU3X32C;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CryptoCoinApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "차소민";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

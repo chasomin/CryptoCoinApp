@@ -13,6 +13,7 @@ final class RealmFavoriteCoinRepository {
     
     func createItem(_ id: String) {
         let item = FavoriteCoin(id: id)
+        print(realm.configuration.fileURL)
         do {
             try realm.write {
                 realm.add(item)
