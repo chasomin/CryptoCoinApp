@@ -8,6 +8,8 @@
 import UIKit
 import SnapKit
 
+import Kingfisher
+
 final class TrendingViewController: BaseViewController {
     let favoriteViewModel = FavoriteViewModel()
     
@@ -19,9 +21,8 @@ final class TrendingViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         navigationItem.title = Constants.NavigationTitle.trending.rawValue
-        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: CircleUserImageBarButton())
         favoriteViewModel.outputData.bind { value in
             if value.count < 2 {
                 self.favoriteCell.isHidden = true
@@ -40,7 +41,7 @@ final class TrendingViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        self.navigationController?.navigationBar.prefersLargeTitles = true
         favoriteViewModel.inputViewWillAppearTrigger.value = ()
     }
     

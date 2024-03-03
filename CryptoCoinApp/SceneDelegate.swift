@@ -22,11 +22,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let tabBar = UITabBarController()
         
         let trendingVC = UINavigationController(rootViewController: TrendingViewController())
-        trendingVC.navigationBar.prefersLargeTitles = true
         let searchVC = UINavigationController(rootViewController: SearchViewController())
-        searchVC.navigationBar.prefersLargeTitles = true
         let favoriteVC = UINavigationController(rootViewController: FavoriteViewController())
-        favoriteVC.navigationBar.prefersLargeTitles = true
         let userVC = UINavigationController(rootViewController: UserViewController())
         userVC.navigationBar.prefersLargeTitles = true
         
