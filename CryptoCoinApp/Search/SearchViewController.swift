@@ -18,6 +18,7 @@ final class SearchViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = Constants.NavigationTitle.search.rawValue
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: CircleUserImageBarButton())
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(SearchTableViewCell.self, forCellReuseIdentifier: SearchTableViewCell.id)
@@ -42,6 +43,7 @@ final class SearchViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel.inputViewWillAppearTrigger.value = ()
+        self.navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     override func configureHierarchy() {
@@ -96,6 +98,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         viewModel.inputSearchButtonTapped.value = searchBar.text
+        view.endEditing(true)
     }
 }
 
