@@ -66,7 +66,7 @@ final class SearchViewModel {
                 return "10개까지만 저장할 수 있어요"
             }
         } else {
-            repository.deleteItme(id)
+            repository.deleteItem(id)
             return "즐겨찾기에서 삭제됐어요"
         }
     }
