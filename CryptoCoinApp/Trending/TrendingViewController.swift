@@ -61,13 +61,15 @@ final class TrendingViewController: BaseViewController {
     
     override func configureLayout() {
         scrollView.snp.makeConstraints { make in
-            make.top.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
-            make.bottom.equalTo(rankNFTCell.snp.bottom)
+            make.edges.equalTo(view.safeAreaLayoutGuide)
         }
         vStack.snp.makeConstraints { make in
-            make.top.equalToSuperview()
+            make.edges.equalToSuperview()
             make.width.equalToSuperview()
-            make.height.equalToSuperview()
+            make.height.equalTo(vStack.snp.height)
+        }
+        favoriteCell.snp.makeConstraints { make in
+            make.height.equalTo(240)
         }
         rankCoinCell.snp.makeConstraints { make in
             make.height.equalTo(240)
