@@ -29,7 +29,7 @@ class IconNameSymbolView: UIView {
             make.trailing.equalTo(safeAreaLayoutGuide)
         }
         symbolLabel.snp.makeConstraints { make in
-            make.top.equalTo(nameLabel.snp.bottom).offset(5)
+            make.top.equalTo(nameLabel.snp.bottom)
             make.leading.equalTo(iconImageView.snp.trailing).offset(10)
             make.bottom.equalTo(iconImageView).inset(5)
             make.trailing.equalTo(safeAreaLayoutGuide)
