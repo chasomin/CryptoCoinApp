@@ -11,6 +11,7 @@ import SnapKit
 final class FavoriteViewController: BaseViewController {
     let viewModel = FavoriteViewModel()
     
+    let emptyView = EmptyView()
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: setCollectionViewLayout())
     let refreshControl = UIRefreshControl()
     private static func setCollectionViewLayout() -> UICollectionViewLayout{
@@ -29,13 +30,20 @@ final class FavoriteViewController: BaseViewController {
         super.viewDidLoad()
 
         navigationItem.title = Constants.NavigationTitle.favorite.rawValue
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: CircleUserImageBarButton())
         setCollectionView()
         viewModel.outputError.bind { value in
             guard let value else { return }
             self.showToast(text: value)
         }
-        viewModel.outputData.bind { _ in
+        viewModel.outputData.bind { value in
             self.collectionView.reloadData()
+            if value.isEmpty {
+                self.collectionView.isHidden = true
+            } else {
+                self.collectionView.isHidden = false
+            }
+            
         }
         viewModel.outputRefresh.bind { value in
             guard let value else { return }
@@ -47,9 +55,11 @@ final class FavoriteViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel.inputViewWillAppearTrigger.value = ()
+        self.navigationController?.navigationBar.prefersLargeTitles = true
     }
 
     override func configureHierarchy() {
+        view.addSubview(emptyView)
         view.addSubview(collectionView)
     }
     
@@ -57,11 +67,14 @@ final class FavoriteViewController: BaseViewController {
         collectionView.snp.makeConstraints { make in
             make.edges.equalTo(view.safeAreaLayoutGuide)
         }
+        emptyView.snp.makeConstraints { make in
+            make.width.height.equalTo(300)
+            make.center.equalTo(view.safeAreaLayoutGuide)
+        }
     }
     
     override func configureView() {
-        collectionView.backgroundColor = .clear
-
+        collectionView.backgroundColor = .backgroundColor
     }
 }
 
