@@ -10,9 +10,10 @@ import RealmSwift
 
 final class FavoriteCoin: Object {
     @Persisted(primaryKey: true) var id: String
-    
+    @Persisted var regDate: Date
     convenience init(id: String) {
         self.init()
         self.id = id
+        self.regDate = Date()
     }
 }
