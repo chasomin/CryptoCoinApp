@@ -62,6 +62,7 @@ final class FavoriteCollectionViewCell: BaseCollectionViewCell {
     override func configureView() {
         contentView.backgroundColor = .white
         contentView.layer.cornerRadius = 20
+        layer.cornerRadius = 20
         
         layer.shadowColor = UIColor.lightGray.cgColor
         layer.shadowRadius = 3
