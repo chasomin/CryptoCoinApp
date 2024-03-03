@@ -20,16 +20,17 @@ final class SearchViewModel {
     var oldValue = ""
     
     init() {
-        inputSearchButtonTapped.bind { value in
+        inputSearchButtonTapped.bind { [weak self] value in
+            guard let self else { return }
             guard let value else { return }
-            self.vaildSearchText(value)
+            vaildSearchText(value)
         }
         
-        inputFavoriteButtonTapped.bind { tag in
+        inputFavoriteButtonTapped.bind { [weak self] tag in
+            guard let self else { return }
             guard let tag else { return }
             let id = self.outputCoinList.value[tag].id
-            
-            self.outputFavoriteButtonTapped.value = self.saveOrDeleteItem(id)
+            outputFavoriteButtonTapped.value = self.saveOrDeleteItem(id)
         }
     }
     
@@ -46,12 +47,13 @@ final class SearchViewModel {
             return
         }
 
-        APIService.shared.fetchCoinSearchAPI(api: .search(text: value)) { data, error in
+        APIService.shared.fetchCoinSearchAPI(api: .search(text: value)) { [weak self] data, error in
+            guard let self else { return }
             if error != nil {
-                self.outputError.value = error!.rawValue
+                outputError.value = error!.rawValue
             } else {
                 guard let data else { return }
-                self.outputCoinList.value = data.coins
+                outputCoinList.value = data.coins
             }
         }
         oldValue = value

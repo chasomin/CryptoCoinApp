@@ -21,18 +21,20 @@ final class ChartViewModel {
     let outputFavoriteButtonTapped: Observable<String?> = Observable(nil)
     
     init() {
-        inputNetworkTrigger.bind { _ in
-            guard let id = self.id else { return }
-            self.fetch(id: id)
+        inputNetworkTrigger.bind { [weak self] _ in
+            guard let self else { return }
+            guard let id = id else { return }
+            fetch(id: id)
             Timer.scheduledTimer(withTimeInterval: 10.0, repeats: true) { _ in
                 self.fetch(id: id)
             }
             // TODO: 10초마다 패치하긴 하는데 최신 데이터를 안가져옴
         }
-        inputFavoriteButtonTapped.bind { value in
-            guard let value else { return }
-            guard let data = self.outputData.value else { return }
-            self.outputFavoriteButtonTapped.value = self.saveOrDeleteItem(data.id)
+        inputFavoriteButtonTapped.bind { [weak self] value in
+            guard let self else { return }
+            guard value != nil else { return }
+            guard let data = outputData.value else { return }
+            outputFavoriteButtonTapped.value = self.saveOrDeleteItem(data.id)
         }
     }
     
@@ -59,14 +61,15 @@ final class ChartViewModel {
     }
     
     func fetch(id: String) {
-        APIService.shared.fetchCoinMarketAPI(api: .market(id: [id])) { data, error in
+        APIService.shared.fetchCoinMarketAPI(api: .market(id: [id])) { [weak self] data, error in
+            guard let self else { return }
             if error != nil {
-                self.outputError.value = error!.rawValue
+                outputError.value = error!.rawValue
             } else {
                 guard let data = data?.first else { return }
-                self.outputData.value = data
-                self.outputSparkline.value = data.sparkline.price
-                self.outputTextColor.value = self.textColorSet(data.priceChangePercentage)
+                outputData.value = data
+                outputSparkline.value = data.sparkline.price
+                outputTextColor.value = textColorSet(data.priceChangePercentage)
             }
         }
 

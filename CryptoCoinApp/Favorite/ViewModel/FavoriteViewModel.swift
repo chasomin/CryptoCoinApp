@@ -21,35 +21,38 @@ final class FavoriteViewModel {
 //    let outputCellDragAndDrop: Observable<Void?> = Observable(nil)
     
     init() {
-        inputViewWillAppearTrigger.bind { value in
+        inputViewWillAppearTrigger.bind { [weak self] value in
+            guard let self else { return }
             guard value != nil else { return }
             var id = [""]
-            if self.repository.fetchItem().map({$0.id}).isEmpty {
+            if repository.fetchItem().map({$0.id}).isEmpty {
                 id = ["."]
             } else {
-                id = self.repository.fetchItem().map{$0.id}
+                id = repository.fetchItem().map{$0.id}
             }
-            self.fetch(id: id)
+            fetch(id: id)
             Timer.scheduledTimer(withTimeInterval: 10.0, repeats: true) { _ in
                 self.fetch(id: id)
             }
         }
-        inputRefreshControl.bind { value in
-            guard let value else { return }
+        inputRefreshControl.bind { [weak self] value in
+            guard let self else { return }
+            guard value != nil else { return }
             var id = [""]
-            if self.repository.fetchItem().map({$0.id}).isEmpty {
+            if repository.fetchItem().map({$0.id}).isEmpty {
                 id = ["."]
             } else {
-                id = self.repository.fetchItem().map{$0.id}
+                id = repository.fetchItem().map{$0.id}
             }
-            APIService.shared.fetchCoinMarketAPI(api: .market(id: id)) { data, error in
+            APIService.shared.fetchCoinMarketAPI(api: .market(id: id)) { [weak self] data, error in
+                guard let self else { return }
                 if error != nil {
-                    self.outputError.value = error!.rawValue
-                    self.outputRefresh.value = ()
+                    outputError.value = error!.rawValue
+                    outputRefresh.value = ()
                 } else {
                     guard let data else { return }
-                    self.outputData.value = data
-                    self.outputRefresh.value = ()
+                    outputData.value = data
+                    outputRefresh.value = ()
                 }
             }
         }
@@ -61,12 +64,13 @@ final class FavoriteViewModel {
     }
     
     func fetch(id: [String]) {
-        APIService.shared.fetchCoinMarketAPI(api: .market(id: id)) { data, error in
+        APIService.shared.fetchCoinMarketAPI(api: .market(id: id)) { [weak self] data, error in
+            guard let self else { return }
             if error != nil {
-                self.outputError.value = error!.rawValue
+                outputError.value = error!.rawValue
             } else {
                 guard let data else { return }
-                self.outputData.value = data
+                outputData.value = data
             }
         }
 

@@ -24,6 +24,11 @@ final class FavoriteCell: BaseView {
         layout.scrollDirection = .horizontal
         return layout
     }
+    
+    deinit {
+        print("Favorite 셀 DEINIT")
+    }
+
 
     override func configureHierarchy() {
         addSubview(favoriteTitleLabel)

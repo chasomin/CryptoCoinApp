@@ -46,38 +46,47 @@ final class ChartViewController: BaseViewController {
         navigationController?.navigationBar.topItem?.backButtonDisplayMode = .minimal
         viewModel.inputNetworkTrigger.value = ()
 
-        viewModel.outputData.bind { market in
+        viewModel.outputData.bind { [weak self] market in
+            guard let self else { return }
             guard let data = market else { return }
-            self.iconNameView.iconImageView.kf.setImage(with: URL(string: data.image))
-            self.iconNameView.nameLabel.text = data.name
-            self.priceLabel.text = data.priceString
-            self.percentageLabel.text = data.changePercentageString
-            self.highLabel.text = data.highString
-            self.lowLabel.text = data.lowString
-            self.allTimeHighLabel.text = data.allTimeHighString
-            self.allTimeLowLabel.text = data.allTimeLowString
-            self.updateLabel.text = data.update
-            self.favoriteButton.image = SetButtonToggleColor.shared.setColor(id: data.id)
+            iconNameView.iconImageView.kf.setImage(with: URL(string: data.image))
+            iconNameView.nameLabel.text = data.name
+            priceLabel.text = data.priceString
+            percentageLabel.text = data.changePercentageString
+            highLabel.text = data.highString
+            lowLabel.text = data.lowString
+            allTimeHighLabel.text = data.allTimeHighString
+            allTimeLowLabel.text = data.allTimeLowString
+            updateLabel.text = data.update
+            favoriteButton.image = SetButtonToggleColor.shared.setColor(id: data.id)
         }
-        viewModel.outputSparkline.bind { sparkline in
-            self.setLineChart(chartView: self.chartView, data: sparkline)
+        viewModel.outputSparkline.bind { [weak self] sparkline in
+            guard let self else { return }
+            setLineChart(chartView: chartView, data: sparkline)
         }
-        viewModel.outputError.bind { text in
+        viewModel.outputError.bind { [weak self] text in
+            guard let self else { return }
             guard let text else { return }
-            self.showErrorAlert(message: text)
+            showErrorAlert(message: text)
         }
-        viewModel.outputTextColor.bind { value in
+        viewModel.outputTextColor.bind { [weak self] value in
+            guard let self else { return }
             guard let value else { return }
-            self.setTextColor(value)
+            setTextColor(value)
         }
-        viewModel.outputFavoriteButtonTapped.bind { value in
+        viewModel.outputFavoriteButtonTapped.bind { [weak self] value in
+            guard let self else { return }
             guard let value else { return }
-            self.showToast(text: value)
+            showToast(text: value)
             guard let data = self.viewModel.outputData.value else { return }
-            self.favoriteButton.image = SetButtonToggleColor.shared.setColor(id: data.id)
+            favoriteButton.image = SetButtonToggleColor.shared.setColor(id: data.id)
         }
     }
     
+    deinit {
+        print("차트 뷰 DEINIT")
+    }
+
     override func configureHierarchy() {
         [iconNameView, priceLabel, percentageLabel, todayLabel, highLowHStack, allTimeHStack, chartView, updateLabel].forEach {
             view.addSubview($0)

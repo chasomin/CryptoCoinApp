@@ -39,7 +39,6 @@ final class RealmFavoriteCoinRepository {
     }
     
     func changeItem(_ id: String, index: Int) {
-        var item = fetchItem().filter{$0.id == id}
         do {
             try realm.write {
                 realm.create(FavoriteCoin.self,

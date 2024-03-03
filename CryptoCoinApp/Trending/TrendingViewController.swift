@@ -11,7 +11,7 @@ import SnapKit
 import Kingfisher
 
 final class TrendingViewController: BaseViewController {
-    let favoriteViewModel = FavoriteViewModel()
+    var favoriteViewModel = FavoriteViewModel()
     
     let scrollView = UIScrollView()
     let vStack = UIStackView()
@@ -23,20 +23,26 @@ final class TrendingViewController: BaseViewController {
         super.viewDidLoad()
         navigationItem.title = Constants.NavigationTitle.trending.rawValue
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: CircleUserImageBarButton())
-        favoriteViewModel.outputData.bind { value in
+        favoriteViewModel.outputData.bind { [weak self] value in
+            guard let self else { return }
             if value.count < 2 {
-                self.favoriteCell.isHidden = true
+                favoriteCell.isHidden = true
             } else {
-                self.favoriteCell.isHidden = false
-                self.favoriteCell.favoriteCollectionView.reloadData()
+                favoriteCell.isHidden = false
+                favoriteCell.favoriteCollectionView.reloadData()
             }
         }
-        favoriteViewModel.outputError.bind { value in
+        favoriteViewModel.outputError.bind { [weak self] value in
+            guard let self else { return }
             guard let value else { return }
-            self.showToast(text: value)
+            showToast(text: value)
         }
         favoriteCell.delegate = self
         rankCoinCell.delegate = self
+    }
+    
+    deinit {
+        print("트랜딩 뷰 DEINIT")
     }
     
     override func viewWillAppear(_ animated: Bool) {

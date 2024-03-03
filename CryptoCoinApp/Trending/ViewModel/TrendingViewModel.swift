@@ -14,7 +14,8 @@ final class TrendingViewModel {
     let outputError: Observable<String?> = Observable(nil)
     
     init() {
-        inputFetchDataTrigger.bind { value in
+        inputFetchDataTrigger.bind { [weak self] value in
+            guard let self else { return }
             guard value != nil else { return }
             APIService.shared.fetchTrendingAPI(api: .trending) { data, error in
                 if error != nil {

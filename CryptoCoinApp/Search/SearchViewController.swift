@@ -23,23 +23,30 @@ final class SearchViewController: BaseViewController {
         tableView.dataSource = self
         tableView.register(SearchTableViewCell.self, forCellReuseIdentifier: SearchTableViewCell.id)
         searchBar.delegate = self
-        viewModel.outputCoinList.bind { data in
-            self.tableView.reloadData()
+        viewModel.outputCoinList.bind { [weak self] data in
+            guard let self else { return }
+            tableView.reloadData()
         }
-        viewModel.outputError.bind { value in
+        viewModel.outputError.bind { [weak self] value in
+            guard let self else { return }
             guard let value else { return }
-            self.showToast(text: value)
+            showToast(text: value)
         }
-        viewModel.outputFavoriteButtonTapped.bind { value in
+        viewModel.outputFavoriteButtonTapped.bind { [weak self] value in
+            guard let self else { return }
             guard let value else { return }
-            self.tableView.reloadData()
-            self.showToast(text: value)
+            tableView.reloadData()
+            showToast(text: value)
         }
-        viewModel.inputViewWillAppearTrigger.bind { _ in
-            self.tableView.reloadData()
+        viewModel.inputViewWillAppearTrigger.bind { [weak self] _ in
+            guard let self else { return }
+            tableView.reloadData()
         }
     }
-    
+    deinit {
+        print("써치 뷰 DEINIT")
+    }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel.inputViewWillAppearTrigger.value = ()

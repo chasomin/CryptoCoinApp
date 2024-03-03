@@ -32,25 +32,33 @@ final class FavoriteViewController: BaseViewController {
         navigationItem.title = Constants.NavigationTitle.favorite.rawValue
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: CircleUserImageBarButton())
         setCollectionView()
-        viewModel.outputError.bind { value in
+        viewModel.outputError.bind { [weak self] value in
+            guard let self else { return }
             guard let value else { return }
-            self.showToast(text: value)
+            showToast(text: value)
         }
-        viewModel.outputData.bind { value in
-            self.collectionView.reloadData()
+        viewModel.outputData.bind { [weak self] value in
+            guard let self else { return }
+            collectionView.reloadData()
             if value.isEmpty {
-                self.collectionView.isHidden = true
+                collectionView.isHidden = true
             } else {
-                self.collectionView.isHidden = false
+                collectionView.isHidden = false
             }
             
         }
-        viewModel.outputRefresh.bind { value in
-            guard let value else { return }
-            self.collectionView.reloadData()
-            self.refreshControl.endRefreshing()
+        viewModel.outputRefresh.bind { [weak self] value in
+            guard let self else { return }
+            guard value != nil else { return }
+            collectionView.reloadData()
+            refreshControl.endRefreshing()
         }
     }
+    
+    deinit {
+        print("즐겨찾기 뷰 DEINIT")
+    }
+
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
