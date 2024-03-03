@@ -23,16 +23,11 @@ final class ChartViewModel {
     init() {
         inputNetworkTrigger.bind { _ in
             guard let id = self.id else { return }
-            APIService.shared.fetchCoinMarketAPI(api: .market(id: [id])) { data, error in
-                if error != nil {
-                    self.outputError.value = error!.rawValue
-                } else {
-                    guard let data = data?.first else { return }
-                    self.outputData.value = data
-                    self.outputSparkline.value = data.sparkline.price
-                    self.outputTextColor.value = self.textColorSet(data.priceChangePercentage)
-                }
+            self.fetch(id: id)
+            Timer.scheduledTimer(withTimeInterval: 10.0, repeats: true) { _ in
+                self.fetch(id: id)
             }
+            // TODO: 10초마다 패치하긴 하는데 최신 데이터를 안가져옴
         }
         inputFavoriteButtonTapped.bind { value in
             guard let value else { return }
@@ -58,8 +53,22 @@ final class ChartViewModel {
                 return "10개까지만 저장할 수 있어요"
             }
         } else {
-            repository.deleteItme(id)
+            repository.deleteItem(id)
             return "즐겨찾기에서 삭제됐어요"
         }
+    }
+    
+    func fetch(id: String) {
+        APIService.shared.fetchCoinMarketAPI(api: .market(id: [id])) { data, error in
+            if error != nil {
+                self.outputError.value = error!.rawValue
+            } else {
+                guard let data = data?.first else { return }
+                self.outputData.value = data
+                self.outputSparkline.value = data.sparkline.price
+                self.outputTextColor.value = self.textColorSet(data.priceChangePercentage)
+            }
+        }
+
     }
 }
