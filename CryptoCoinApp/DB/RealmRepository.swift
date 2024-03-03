@@ -24,11 +24,10 @@ final class RealmFavoriteCoinRepository {
     }
     
     func fetchItem() -> [FavoriteCoin] {
-        return Array(realm.objects(FavoriteCoin.self))
+        return Array(realm.objects(FavoriteCoin.self).sorted(byKeyPath: "regDate", ascending: false))
     }
     
-    
-    func deleteItme(_ id: String) {
+    func deleteItem(_ id: String) {
         let item = fetchItem().filter{$0.id == id}
         do {
             try realm.write {
@@ -38,4 +37,20 @@ final class RealmFavoriteCoinRepository {
             print(error)
         }
     }
+    
+    func changeItem(_ id: String, index: Int) {
+        var item = fetchItem().filter{$0.id == id}
+        do {
+            try realm.write {
+                realm.create(FavoriteCoin.self,
+                             value: ["id":id,
+                                     "regDate": Date()],
+                             update: .modified)
+            }
+        } catch {
+            print(error)
+        }
+
+    }
+    
 }
