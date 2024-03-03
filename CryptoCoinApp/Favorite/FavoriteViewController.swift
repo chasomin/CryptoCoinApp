@@ -84,6 +84,8 @@ extension FavoriteViewController {
         refreshControl.addTarget(self, action: #selector(refreshCell), for: .valueChanged)
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.dragDelegate = self
+        collectionView.dropDelegate = self
         collectionView.register(FavoriteCollectionViewCell.self, forCellWithReuseIdentifier: FavoriteCollectionViewCell.id)
     }
     @objc func refreshCell() {
@@ -106,4 +108,57 @@ extension FavoriteViewController: UICollectionViewDelegate, UICollectionViewData
         vc.viewModel.id = viewModel.outputData.value[indexPath.row].id
         navigationController?.pushViewController(vc, animated: true)
     }
+    func collectionView(_ collectionView: UICollectionView, canHandle session: UIDropSession) -> Bool {
+        return true
+    }
+
+    func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let categoryCell = self.viewModel.outputData.value[sourceIndexPath.row]
+
+        self.viewModel.outputData.value.remove(at: sourceIndexPath.row)
+        self.viewModel.outputData.value.insert(categoryCell, at: destinationIndexPath.row)
+//        self.viewModel.inputCellDragAndDrop.value = (categoryCell.id, destinationIndexPath.row)
+    }
+}
+// TODO: 셀 순서 옮긴 거 저장 어떻게 하지
+// realm에 regDate 를 Date()로 수정하고 sort 해도 network할 때 일정한 순서로 보내줌
+
+extension FavoriteViewController: UICollectionViewDragDelegate {
+    func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
+        return [UIDragItem(itemProvider: NSItemProvider())]
+    }
+}
+
+extension FavoriteViewController: UICollectionViewDropDelegate {
+    func collectionView(_ collectionView: UICollectionView, performDropWith coordinator: UICollectionViewDropCoordinator) {
+        guard let destinationIndexPath = coordinator.destinationIndexPath else {
+            return
+        }
+
+        coordinator.items.forEach { dropItem in
+            guard let sourceIndexPath = dropItem.sourceIndexPath else { return }
+            let categoryCell = self.viewModel.outputData.value[sourceIndexPath.row]
+
+            collectionView.performBatchUpdates({
+                collectionView.deleteItems(at: [sourceIndexPath])
+                collectionView.insertItems(at: [destinationIndexPath])
+                self.viewModel.outputData.value.remove(at: sourceIndexPath.row)
+                self.viewModel.outputData.value.insert(categoryCell, at: destinationIndexPath.row)
+//                self.viewModel.inputCellDragAndDrop.value = (categoryCell.id, destinationIndexPath.row)
+            }, completion: { _ in
+                coordinator.drop(dropItem.dragItem, toItemAt: destinationIndexPath)
+            })
+
+        }
+
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, dropSessionDidUpdate session: UIDropSession, withDestinationIndexPath destinationIndexPath: IndexPath?) -> UICollectionViewDropProposal {
+        if session.localDragSession != nil {
+            return UICollectionViewDropProposal(operation: .move, intent: .insertAtDestinationIndexPath)
+        }
+        return UICollectionViewDropProposal(operation: .cancel, intent: .unspecified)
+    }
+
+    
 }
