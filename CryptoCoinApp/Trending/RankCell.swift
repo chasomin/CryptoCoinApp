@@ -16,7 +16,7 @@ final class RankCell: BaseView {
 
     static func setRankCollectionViewLayout() -> UICollectionViewLayout {
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: UIScreen.main.bounds.width / 1.2, height: 60)
+        layout.itemSize = CGSize(width: UIScreen.main.bounds.width / 1.19, height: 60)
         layout.minimumLineSpacing = 10
         layout.minimumInteritemSpacing = 0
         layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 0, right: UIScreen.main.bounds.width / 3)
@@ -89,9 +89,10 @@ extension RankCell: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let value = viewModel.outputData.value else { return }
-        print(viewModel.outputError.value)
         if viewModel.inputWhatKindOfCell.value == 1 {
-            self.delegate?.selecteCell(id: value.coins[indexPath.item].item.id)
+            self.delegate?.selecteCell(id: value.coins.sorted(by: {
+                $0.item.marketRank ?? 0 < $1.item.marketRank ?? 0
+            })[indexPath.item].item.id)
         }
     }
 }
