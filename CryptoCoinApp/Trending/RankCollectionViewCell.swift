@@ -69,7 +69,7 @@ extension RankCollectionViewCell {
         iconNameSymbolView.iconImageView.kf.setImage(with: URL(string: item.small))
         iconNameSymbolView.nameLabel.text = item.name
         iconNameSymbolView.symbolLabel.text = item.symbol
-        priceLabel.text = item.data.price
+        priceLabel.text = item.data.priceText
         percentageLabel.text = item.data.priceChangePercentage.krw.decimalCalculator()
         percentageLabel.textColor = HighLowColorManager.shared.setLabelColor(num: item.data.priceChangePercentage.krw)
     }

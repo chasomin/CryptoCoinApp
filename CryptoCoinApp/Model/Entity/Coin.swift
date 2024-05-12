@@ -25,8 +25,13 @@ struct Item {
 }
 
 struct CoinData {
-    let price: String
+    let price: Double
     let priceChangePercentage: PricePercentage
+    
+    var priceText: String {
+        let digit: Double = pow(10, 3)
+        return "$\(round(price * digit) / digit)"
+    }
 }
 
 struct PricePercentage {

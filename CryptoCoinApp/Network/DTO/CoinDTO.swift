@@ -33,7 +33,7 @@ struct ItemDTO: Decodable {
                     thumb: thumb,
                     small: small ?? "",
                     large: large ?? "",
-                    data: data?.toEntity() ?? CoinData(price: "", priceChangePercentage: PricePercentage(krw: 0)),
+                    data: data?.toEntity() ?? CoinData(price: 0, priceChangePercentage: PricePercentage(krw: 0)),
                     marketRank: market_cap_rank)
     }
     
@@ -41,7 +41,7 @@ struct ItemDTO: Decodable {
 }
 
 struct CoinDataDTO: Decodable {
-    let price: String
+    let price: Double
     let price_change_percentage_24h: PricePercentageDTO
     
     func toEntity() -> CoinData {
