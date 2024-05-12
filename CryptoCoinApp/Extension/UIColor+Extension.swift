@@ -14,7 +14,7 @@ extension UIColor {
     static let labelColor = UIColor(red: 52/255.0, green: 61/255.0, blue: 76/255.0, alpha: 1)
     static let secondaryLabelColor = UIColor(red: 130/255.0, green: 130/255.0, blue: 130/255.0, alpha: 1)
     
-    static let pointColor = UIColor(red: 145/255.0, green: 76/255.0, blue: 245/255.0, alpha: 1)
+    static let pointColor = UIColor(red: 143/255.0, green: 234/255.0, blue:  51/255.0, alpha: 1)
     static let upperLabelColor = UIColor(red: 240/255.0, green: 68/255.0, blue: 82/255.0, alpha: 1)
     static let upperBackColor = UIColor(red: 255/255.0, green: 234/255.0, blue: 237/255.0, alpha: 1)
     static let lowerLabelColor = UIColor(red: 50/255.0, green: 130/255.0, blue: 248/255.0, alpha: 1)
