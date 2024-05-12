@@ -15,9 +15,9 @@ class SetButtonToggleColor {
         let repository = RealmFavoriteCoinRepository()
         let idList = repository.fetchItem().map{$0.id}
         if idList.contains(id) {
-            return .btnStarFill
+            return .bookmarkFill
         } else {
-            return .btnStar
+            return .bookmark
         }
     }
 }

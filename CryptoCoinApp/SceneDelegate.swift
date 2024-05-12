@@ -24,15 +24,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let trendingVC = UINavigationController(rootViewController: TrendingViewController())
         let searchVC = UINavigationController(rootViewController: SearchViewController())
         let favoriteVC = UINavigationController(rootViewController: FavoriteViewController())
-        let userVC = UINavigationController(rootViewController: UserViewController())
-        userVC.navigationBar.prefersLargeTitles = true
         
-        trendingVC.tabBarItem = UITabBarItem(title: "", image: .tabTrendInactive, selectedImage: .tabTrend)
+        trendingVC.tabBarItem = UITabBarItem(title: "", image: .tabChartInactive, selectedImage: .tabChart)
         searchVC.tabBarItem = UITabBarItem(title: "", image: .tabSearchInactive, selectedImage: .tabSearch)
-        favoriteVC.tabBarItem = UITabBarItem(title: "", image: .tabPortfolioInactive, selectedImage: .tabPortfolio)
-        userVC.tabBarItem = UITabBarItem(title: "", image: .tabUser, selectedImage: .tabUserInactive)
+        favoriteVC.tabBarItem = UITabBarItem(title: "", image: .tabCoinInactive, selectedImage: .tabCoin)
         
-        tabBar.viewControllers = [trendingVC, searchVC, favoriteVC, userVC]
+        tabBar.viewControllers = [trendingVC, searchVC, favoriteVC]
         window?.rootViewController = tabBar
         window?.makeKeyAndVisible()
         

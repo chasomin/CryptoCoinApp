@@ -31,7 +31,7 @@ class EmptyView: BaseView {
     }
     
     override func configureView() {
-        imageView.image = .btnStar
+        imageView.image = .bookmark
         label.text = "즐겨 찾는 Coin을 저장해보세요!"
         label.font = .boldTitle
         label.textColor = .pointColor
