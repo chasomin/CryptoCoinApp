@@ -7,33 +7,39 @@
 
 import UIKit
 import SnapKit
+import DGCharts
 
 final class TrendingFavoriteCollectionViewCell: BaseCollectionViewCell {
 
     let iconNameSymbolView = IconNameSymbolView()
     let priceLabel = UILabel()
     let percentageLabel = UILabel()
+    let chartView = LineChartView()
 
     override func configureHierarchy() {
         contentView.addSubview(iconNameSymbolView)
+        contentView.addSubview(chartView)
         contentView.addSubview(percentageLabel)
         contentView.addSubview(priceLabel)
     }
     
     override func configureLayout() {
         iconNameSymbolView.snp.makeConstraints { make in
-            make.top.leading.equalTo(contentView.safeAreaLayoutGuide).inset(15)
-            make.trailing.equalTo(contentView.safeAreaLayoutGuide).inset(15)
-
+            make.top.horizontalEdges.equalTo(contentView.safeAreaLayoutGuide).inset(15)
         }
-        percentageLabel.snp.makeConstraints { make in
-            make.leading.bottom.equalTo(contentView.safeAreaLayoutGuide).inset(15)
-            make.height.equalTo(25)
+        chartView.snp.makeConstraints { make in
+            make.top.equalTo(iconNameSymbolView.snp.bottom)
+            make.horizontalEdges.equalTo(contentView.safeAreaLayoutGuide).inset(10)
         }
         priceLabel.snp.makeConstraints { make in
-            make.bottom.equalTo(percentageLabel.snp.top)
-            make.height.equalTo(30)
+            make.top.equalTo(chartView.snp.bottom)
             make.horizontalEdges.equalTo(contentView.safeAreaLayoutGuide).inset(15)
+            make.height.equalTo(18)
+        }
+        percentageLabel.snp.makeConstraints { make in
+            make.top.equalTo(priceLabel.snp.bottom)
+            make.horizontalEdges.bottom.equalTo(contentView.safeAreaLayoutGuide).inset(15)
+            make.height.equalTo(18)
         }
     }
     
@@ -44,7 +50,7 @@ final class TrendingFavoriteCollectionViewCell: BaseCollectionViewCell {
         iconNameSymbolView.nameLabel.textColor = .labelColor
         iconNameSymbolView.symbolLabel.textColor = .secondaryLabel
         priceLabel.textColor = .labelColor
-        percentageLabel.textAlignment = .center
+        percentageLabel.textAlignment = .left
         percentageLabel.font = .boldCaption
     }
     
@@ -55,5 +61,6 @@ final class TrendingFavoriteCollectionViewCell: BaseCollectionViewCell {
         iconNameSymbolView.symbolLabel.text = data.symbol
         priceLabel.text = data.priceString
         percentageLabel.text = data.changePercentageString
+        LineChartView.setLineChart(chartView: chartView, data: data.sparkline.price)
     }
 }
