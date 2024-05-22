@@ -70,6 +70,7 @@
 		7958A8312B8E3300007372AF /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7958A8302B8E3300007372AF /* FavoriteViewController.swift */; };
 		7958A8332B8E35BC007372AF /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7958A8322B8E35BC007372AF /* BaseCollectionViewCell.swift */; };
 		7958A8352B8E3623007372AF /* FavoriteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7958A8342B8E3623007372AF /* FavoriteCollectionViewCell.swift */; };
+		79FC3A6B2BFE3E6100D6DDB7 /* LineChartView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FC3A6A2BFE3E6100D6DDB7 /* LineChartView+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -131,6 +132,7 @@
 		7958A8302B8E3300007372AF /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		7958A8322B8E35BC007372AF /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		7958A8342B8E3623007372AF /* FavoriteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCollectionViewCell.swift; sourceTree = "<group>"; };
+		79FC3A6A2BFE3E6100D6DDB7 /* LineChartView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LineChartView+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -273,6 +275,7 @@
 				7925C5ED2B8F6FF9006A4691 /* Number+Extension.swift */,
 				7925C5EF2B8F81A1006A4691 /* DateFormatter+Extension.swift */,
 				790E6FD02B93963E002A9F37 /* Alert+Extension.swift */,
+				79FC3A6A2BFE3E6100D6DDB7 /* LineChartView+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -512,6 +515,7 @@
 				7958A8102B8DBF4F007372AF /* TrendingDTO.swift in Sources */,
 				7958A81C2B8DE0BF007372AF /* SearchTableViewCell.swift in Sources */,
 				790E6FB52B9056EB002A9F37 /* FavoriteButtonManager.swift in Sources */,
+				79FC3A6B2BFE3E6100D6DDB7 /* LineChartView+.swift in Sources */,
 				790E6FD72B946C50002A9F37 /* EmptyView.swift in Sources */,
 				7925C5E42B8F0C57006A4691 /* Coin.swift in Sources */,
 				7958A80B2B8DBAFE007372AF /* APIService.swift in Sources */,
