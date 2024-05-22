@@ -30,7 +30,6 @@ final class FavoriteViewController: BaseViewController {
         super.viewDidLoad()
 
         navigationItem.title = Constants.NavigationTitle.favorite.rawValue
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: CircleUserImageBarButton())
         setCollectionView()
         viewModel.outputError.bind { [weak self] value in
             guard let self else { return }

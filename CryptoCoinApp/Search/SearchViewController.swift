@@ -18,7 +18,6 @@ final class SearchViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = Constants.NavigationTitle.search.rawValue
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: CircleUserImageBarButton())
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(SearchTableViewCell.self, forCellReuseIdentifier: SearchTableViewCell.id)
