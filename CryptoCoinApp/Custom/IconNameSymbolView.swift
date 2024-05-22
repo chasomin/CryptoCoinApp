@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class IconNameSymbolView: UIView {
     let iconImageView = UIImageView()
