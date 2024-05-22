@@ -15,21 +15,20 @@ final class TrendingViewController: BaseViewController {
     
     let scrollView = UIScrollView()
     let vStack = UIStackView()
-    let favoriteCell = FavoriteCell()
+    let favoriteView = FavoriteView()
     let rankCoinCell = RankCell()
     let rankNFTCell = RankCell()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = Constants.NavigationTitle.trending.rawValue
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: CircleUserImageBarButton())
         favoriteViewModel.outputData.bind { [weak self] value in
             guard let self else { return }
             if value.count < 2 {
-                favoriteCell.isHidden = true
+                favoriteView.isHidden = true
             } else {
-                favoriteCell.isHidden = false
-                favoriteCell.favoriteCollectionView.reloadData()
+                favoriteView.isHidden = false
+                favoriteView.favoriteCollectionView.reloadData()
             }
         }
         favoriteViewModel.outputError.bind { [weak self] value in
@@ -37,7 +36,7 @@ final class TrendingViewController: BaseViewController {
             guard let value else { return }
             showToast(text: value)
         }
-        favoriteCell.delegate = self
+        favoriteView.delegate = self
         rankCoinCell.delegate = self
     }
     
@@ -54,7 +53,7 @@ final class TrendingViewController: BaseViewController {
     override func configureHierarchy() {
         view.addSubview(scrollView)
         scrollView.addSubview(vStack)
-        vStack.addArrangedSubview(favoriteCell)
+        vStack.addArrangedSubview(favoriteView)
         vStack.addArrangedSubview(rankCoinCell)
         vStack.addArrangedSubview(rankNFTCell)
     }
@@ -68,7 +67,7 @@ final class TrendingViewController: BaseViewController {
             make.width.equalToSuperview()
             make.height.equalTo(vStack.snp.height)
         }
-        favoriteCell.snp.makeConstraints { make in
+        favoriteView.snp.makeConstraints { make in
             make.height.equalTo(240)
         }
         rankCoinCell.snp.makeConstraints { make in
@@ -83,12 +82,11 @@ final class TrendingViewController: BaseViewController {
         vStack.axis = .vertical
         vStack.spacing = 10
         vStack.distribution = .fillEqually
-        favoriteCell.viewModel = self.favoriteViewModel
+        favoriteView.viewModel = self.favoriteViewModel
         rankCoinCell.rankTitleLabel.text = Constants.TrendingCellTitle.topCoin.title
         rankCoinCell.viewModel.inputWhatKindOfCell.value = 1
         rankNFTCell.rankTitleLabel.text = Constants.TrendingCellTitle.topNFT.title
     }
-
 }
 
 extension TrendingViewController: ViewTransitionProtocol {
